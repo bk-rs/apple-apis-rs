@@ -1,0 +1,6 @@
+/tests/verify_receipt_files/*.base64
+/tests/verify_receipt_files/password
+!/tests/verify_receipt_files/.keep
+
+/tests/response_body_json_files/*.json
+!/tests/response_body_json_files/.keep

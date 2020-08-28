@@ -1,0 +1,21 @@
+[workspace]
+members = [
+    "apple-app-store-connect-api",
+    "apple-app-store-receipts",
+    "apple-app-store-server-notifications",
+    "apple-business-chat-api",
+    "apple-classkit-catalog-api",
+    "apple-device-management",
+    "apple-iad",
+    "apple-itc-reporter",
+    "apple-itunes-search-api",
+    "apple-maps-web-snapshots",
+    "apple-music-api",
+    "apple-news",
+    "apple-search-ads",
+    "apple-wallet-passes",
+    "apple-web-service-client",
+    "apple-web-service-endpoint",
+    "apple-web-service-isahc-client",
+    "demos/async-std",
+]

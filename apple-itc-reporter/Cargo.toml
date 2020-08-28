@@ -1,0 +1,15 @@
+[package]
+name = "apple-itc-reporter"
+version = "0.0.0"
+authors = ["vkill <vkill.net@gmail.com>"]
+edition = "2018"
+description = "Apple - Reporter"
+license = "Apache-2.0 OR MIT"
+repository = "https://github.com/bk-rs/appleapis"
+homepage = "https://github.com/bk-rs/appleapis"
+documentation = "https://docs.rs/apple-itc-reporter"
+keywords = []
+categories = []
+readme = "README.md"
+
+[dependencies]

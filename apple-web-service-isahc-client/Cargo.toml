@@ -1,0 +1,19 @@
+[package]
+name = "apple-web-service-isahc-client"
+version = "0.1.0"
+authors = ["vkill <vkill.net@gmail.com>"]
+edition = "2018"
+description = "Apple - Web Service Isahc Client"
+license = "Apache-2.0 OR MIT"
+repository = "https://github.com/bk-rs/appleapis"
+homepage = "https://github.com/bk-rs/appleapis"
+documentation = "https://docs.rs/apple-web-service-isahc-client"
+keywords = []
+categories = []
+readme = "README.md"
+
+[dependencies]
+apple-web-service-client = { path = "../apple-web-service-client", version = "0.1", default-features = false, features = [] }
+
+isahc = { version = "0.9", default-features = false, features = [] }
+futures-lite = { version = "1.0", default-features = false, features = ["std"] }
