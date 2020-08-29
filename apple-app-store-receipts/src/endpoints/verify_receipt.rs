@@ -1,12 +1,13 @@
 // ref https://developer.apple.com/documentation/appstorereceipts/verifyreceipt
 
+use std::io;
+
 use http::{
     header::{ACCEPT, CONTENT_TYPE, USER_AGENT},
     Method, StatusCode, Version,
 };
-use std::io;
 
-use crate::endpoints::endpoint_prelude::*;
+use super::endpoint_prelude::*;
 use crate::{
     objects::{request_body::RequestBody, response_body::ResponseBody},
     types::status::Status,
