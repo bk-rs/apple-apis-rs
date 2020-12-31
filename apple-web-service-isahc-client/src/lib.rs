@@ -9,7 +9,7 @@ use std::time::Duration;
 
 pub use apple_web_service_client::Client;
 use apple_web_service_client::{async_trait, Body, Request, Response};
-use futures_lite::io::AsyncReadExt;
+use futures_util::io::AsyncReadExt;
 use isahc::{config::Configurable, HttpClient};
 
 pub struct IsahcClient {
