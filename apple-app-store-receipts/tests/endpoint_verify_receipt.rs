@@ -1,10 +1,10 @@
 use std::{error, io};
 
-use apple_app_store_receipts::endpoints::verify_receipt::{
-    ReceiptData, RetryReason, VerifyReceipt,
+use apple_app_store_receipts::{
+    endpoints::verify_receipt::{ReceiptData, RetryReason, VerifyReceipt},
+    objects::response_body::ResponseBody,
+    types::status::Status,
 };
-use apple_app_store_receipts::objects::response_body::ResponseBody;
-use apple_app_store_receipts::types::status::Status;
 use apple_web_service_endpoint::{
     http::{Method, StatusCode, Version},
     Endpoint, EndpointParseResponseOutput, Response,

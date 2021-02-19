@@ -1,7 +1,9 @@
 use std::{error, fs, io, path::PathBuf};
 
-use apple_app_store_receipts::endpoints::verify_receipt::{ReceiptData, VerifyReceipt};
-use apple_app_store_receipts::objects::response_body::ResponseBody;
+use apple_app_store_receipts::{
+    endpoints::verify_receipt::{ReceiptData, VerifyReceipt},
+    objects::response_body::ResponseBody,
+};
 use apple_web_service_isahc_client::{Client, IsahcClient};
 use futures_lite::future::block_on;
 
