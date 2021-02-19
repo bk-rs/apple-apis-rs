@@ -23,7 +23,7 @@ fn de_all() -> Result<(), Box<dyn error::Error>> {
                 },
                 Err(err) => {
                     eprintln!("path {:?} de failed, err: {:?}", path, err);
-                    assert!(false, err);
+                    return Err(err.into());
                 }
             }
         }
