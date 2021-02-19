@@ -9,8 +9,7 @@ use std::time::Duration;
 
 pub use apple_web_service_client::Client;
 use apple_web_service_client::{async_trait, Body, Request, Response};
-use futures_util::io::AsyncReadExt;
-use isahc::{config::Configurable, HttpClient};
+use isahc::{config::Configurable, AsyncReadResponseExt, HttpClient};
 
 pub struct IsahcClient {
     http_client: HttpClient,
@@ -37,8 +36,8 @@ impl Client for IsahcClient {
         let req_uri = request.uri().to_owned();
         let req_body_len = request.body().len();
 
-        let res = self.http_client.send_async(request).await?;
-        let (head, mut body) = res.into_parts();
+        let resp = self.http_client.send_async(request).await?;
+        let (head, body) = resp.into_parts();
 
         let mut body_buf = Vec::with_capacity(body.len().unwrap_or_else(|| {
             if req_uri.to_string().contains("verifyReceipt") {
@@ -48,9 +47,12 @@ impl Client for IsahcClient {
             }
         }) as usize);
 
-        body.read_to_end(&mut body_buf).await?;
+        let mut resp = Response::from_parts(head, body);
+        resp.copy_to(&mut body_buf).await?;
 
-        let res = Response::from_parts(head, body_buf);
-        Ok(res)
+        let (head, _) = resp.into_parts();
+        let resp = Response::from_parts(head, body_buf);
+
+        Ok(resp)
     }
 }
