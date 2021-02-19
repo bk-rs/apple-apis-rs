@@ -68,9 +68,11 @@ pub enum Environment {
 #[derive(Deserialize, Debug, PartialEq, Eq)]
 pub enum ReceiptType {
     Production,
-    ProductionVPP,
+    #[serde(rename = "ProductionVPP")]
+    ProductionVpp,
     ProductionSandbox,
-    ProductionVPPSandbox,
+    #[serde(rename = "ProductionVPPSandbox")]
+    ProductionVppSandbox,
 }
 
 #[derive(Deserialize, Debug)]
@@ -204,7 +206,7 @@ fn deserialize_bool_from_anything_option<'de, D>(deserializer: D) -> Result<Opti
 where
     D: Deserializer<'de>,
 {
-    deserialize_bool_from_anything(deserializer).map(|x| Some(x))
+    deserialize_bool_from_anything(deserializer).map(Some)
 }
 
 fn deserialize_datetime_utc_from_milliseconds_option<'de, D>(
@@ -213,7 +215,7 @@ fn deserialize_datetime_utc_from_milliseconds_option<'de, D>(
 where
     D: Deserializer<'de>,
 {
-    deserialize_datetime_utc_from_milliseconds(deserializer).map(|x| Some(x))
+    deserialize_datetime_utc_from_milliseconds(deserializer).map(Some)
 }
 
 #[cfg(test)]
