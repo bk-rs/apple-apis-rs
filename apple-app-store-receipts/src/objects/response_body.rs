@@ -1,7 +1,5 @@
 // ref https://developer.apple.com/documentation/appstorereceipts/requestbody
 
-use std::result;
-
 use chrono::{DateTime, Utc};
 use serde::{de, Deserialize, Deserializer};
 use serde_aux::field_attributes::{
@@ -18,7 +16,7 @@ pub enum ResponseBody {
     Error(ResponseBodyWithError),
 }
 impl<'de> Deserialize<'de> for ResponseBody {
-    fn deserialize<D>(deserializer: D) -> result::Result<ResponseBody, D::Error>
+    fn deserialize<D>(deserializer: D) -> Result<ResponseBody, D::Error>
     where
         D: Deserializer<'de>,
     {
@@ -222,10 +220,10 @@ where
 mod tests {
     use super::*;
 
-    use std::io;
+    use std::error;
 
     #[test]
-    fn simple_error() -> io::Result<()> {
+    fn simple_error() -> Result<(), Box<dyn error::Error>> {
         match serde_json::from_str(r#"{"status":21007}"#)? {
             ResponseBody::Error(body) => {
                 assert_eq!(body.status, Status::Error21007);

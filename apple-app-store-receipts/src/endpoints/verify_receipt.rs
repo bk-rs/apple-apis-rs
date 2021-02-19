@@ -7,11 +7,12 @@ use http::{
     Method, StatusCode, Version,
 };
 
-use super::endpoint_prelude::*;
 use crate::{
     objects::{request_body::RequestBody, response_body::ResponseBody},
     types::status::Status,
 };
+
+use super::endpoint_prelude::*;
 
 const URL_PRODUCTION: &str = "https://buy.itunes.apple.com/verifyReceipt";
 const URL_SANDBOX: &str = "https://sandbox.itunes.apple.com/verifyReceipt";

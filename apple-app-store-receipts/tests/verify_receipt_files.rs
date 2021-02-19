@@ -1,6 +1,4 @@
-use std::fs;
-use std::io;
-use std::path::PathBuf;
+use std::{error, fs, io, path::PathBuf};
 
 use apple_app_store_receipts::endpoints::verify_receipt::{ReceiptData, VerifyReceipt};
 use apple_app_store_receipts::objects::response_body::ResponseBody;
@@ -8,7 +6,7 @@ use apple_web_service_isahc_client::{Client, IsahcClient};
 use futures_lite::future::block_on;
 
 #[test]
-fn respond_all() -> io::Result<()> {
+fn respond_all() -> Result<(), Box<dyn error::Error>> {
     block_on(async {
         let dir = PathBuf::new().join("tests/verify_receipt_files");
 
@@ -49,7 +47,7 @@ fn respond_all() -> io::Result<()> {
                         match err.kind() {
                             io::ErrorKind::TimedOut => {}
                             _ => {
-                                return Err(io::Error::new(io::ErrorKind::Other, err));
+                                return Err(err.into());
                             }
                         }
                     }

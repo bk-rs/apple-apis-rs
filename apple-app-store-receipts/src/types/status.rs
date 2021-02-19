@@ -1,7 +1,6 @@
 // ref https://developer.apple.com/documentation/appstorereceipts/status
 
 use std::fmt;
-use std::result;
 
 use serde::{de, Deserialize, Deserializer};
 
@@ -23,7 +22,7 @@ pub enum Status {
 }
 
 impl<'de> Deserialize<'de> for Status {
-    fn deserialize<D>(deserializer: D) -> result::Result<Self, D::Error>
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
         D: Deserializer<'de>,
     {
@@ -74,7 +73,7 @@ impl fmt::Display for Status {
 mod tests {
     use super::*;
 
-    use std::io;
+    use std::error;
 
     use serde_test::{assert_de_tokens, assert_de_tokens_error, Token};
 
@@ -84,7 +83,7 @@ mod tests {
     }
 
     #[test]
-    fn simple() -> io::Result<()> {
+    fn simple() -> Result<(), Box<dyn error::Error>> {
         for (v, status) in vec![
             (0, Status::Success),
             (21000, Status::Error21000),

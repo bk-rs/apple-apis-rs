@@ -3,9 +3,7 @@ pub use isahc;
 //
 //
 //
-use std::io;
-use std::result;
-use std::time::Duration;
+use std::{io, time::Duration};
 
 pub use apple_web_service_client::Client;
 use apple_web_service_client::{async_trait, Body, Request, Response};
@@ -16,7 +14,7 @@ pub struct IsahcClient {
 }
 
 impl IsahcClient {
-    pub fn new() -> result::Result<Self, isahc::Error> {
+    pub fn new() -> Result<Self, isahc::Error> {
         Ok(Self::with(
             HttpClient::builder()
                 .timeout(Duration::from_secs(5))

@@ -2,18 +2,17 @@
 cargo run -p appleapis-demo-async-std --bin iap_verify_receipt 'YOUR_APPLE_IAP_PASSWORD' 'RECEIPT_BASE64_STRING'
 */
 
-use std::env;
-use std::io;
+use std::{env, error};
 
 use apple_app_store_receipts::{ReceiptData, VerifyReceipt};
 use apple_web_service_isahc_client::{Client, IsahcClient};
 
 #[async_std::main]
-async fn main() -> io::Result<()> {
+async fn main() -> Result<(), Box<dyn error::Error>> {
     run().await
 }
 
-async fn run() -> io::Result<()> {
+async fn run() -> Result<(), Box<dyn error::Error>> {
     let apple_iap_password = env::args()
         .nth(1)
         .unwrap_or_else(|| env::var("APPLE_IAP_PASSWORD").unwrap());

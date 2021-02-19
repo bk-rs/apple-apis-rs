@@ -1,4 +1,4 @@
-use std::io;
+use std::{error, io};
 
 use apple_app_store_receipts::endpoints::verify_receipt::{
     ReceiptData, RetryReason, VerifyReceipt,
@@ -11,7 +11,7 @@ use apple_web_service_endpoint::{
 };
 
 #[test]
-fn render_request() -> io::Result<()> {
+fn render_request() -> Result<(), Box<dyn error::Error>> {
     let verify_receipt = VerifyReceipt::new(
         "pw".to_owned(),
         ReceiptData::Base64String("foo".to_owned()),
@@ -48,7 +48,7 @@ fn render_request() -> io::Result<()> {
 }
 
 #[test]
-fn parse_response_with_http_503() -> io::Result<()> {
+fn parse_response_with_http_503() -> Result<(), Box<dyn error::Error>> {
     let mut verify_receipt = VerifyReceipt::new(
         "pw".to_owned(),
         ReceiptData::Base64String("foo".to_owned()),
@@ -70,7 +70,7 @@ fn parse_response_with_http_503() -> io::Result<()> {
 }
 
 #[test]
-fn parse_response_with_http_400() -> io::Result<()> {
+fn parse_response_with_http_400() -> Result<(), Box<dyn error::Error>> {
     let mut verify_receipt = VerifyReceipt::new(
         "pw".to_owned(),
         ReceiptData::Base64String("foo".to_owned()),
@@ -93,7 +93,7 @@ fn parse_response_with_http_400() -> io::Result<()> {
 }
 
 #[test]
-fn parse_response_with_21007() -> io::Result<()> {
+fn parse_response_with_21007() -> Result<(), Box<dyn error::Error>> {
     let mut verify_receipt = VerifyReceipt::new(
         "pw".to_owned(),
         ReceiptData::Base64String("foo".to_owned()),
@@ -149,7 +149,7 @@ fn parse_response_with_double_21007() {
 }
 
 #[test]
-fn parse_response_with_21002() -> io::Result<()> {
+fn parse_response_with_21002() -> Result<(), Box<dyn error::Error>> {
     let mut verify_receipt = VerifyReceipt::new(
         "pw".to_owned(),
         ReceiptData::Base64String("foo".to_owned()),
@@ -171,7 +171,7 @@ fn parse_response_with_21002() -> io::Result<()> {
 }
 
 #[test]
-fn parse_response_with_many_times_21002() -> io::Result<()> {
+fn parse_response_with_many_times_21002() -> Result<(), Box<dyn error::Error>> {
     let mut verify_receipt = VerifyReceipt::new(
         "pw".to_owned(),
         ReceiptData::Base64String("foo".to_owned()),
@@ -226,7 +226,7 @@ fn parse_response_with_many_times_21002() -> io::Result<()> {
 }
 
 #[test]
-fn parse_response_with_21104_and_retryable() -> io::Result<()> {
+fn parse_response_with_21104_and_retryable() -> Result<(), Box<dyn error::Error>> {
     let mut verify_receipt = VerifyReceipt::new(
         "pw".to_owned(),
         ReceiptData::Base64String("foo".to_owned()),
@@ -249,7 +249,7 @@ fn parse_response_with_21104_and_retryable() -> io::Result<()> {
 }
 
 #[test]
-fn parse_response_with_21104_and_not_retryable() -> io::Result<()> {
+fn parse_response_with_21104_and_not_retryable() -> Result<(), Box<dyn error::Error>> {
     let mut verify_receipt = VerifyReceipt::new(
         "pw".to_owned(),
         ReceiptData::Base64String("foo".to_owned()),

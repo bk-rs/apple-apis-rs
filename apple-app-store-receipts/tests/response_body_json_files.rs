@@ -1,11 +1,9 @@
-use std::fs;
-use std::io;
-use std::path::PathBuf;
+use std::{error, fs, path::PathBuf};
 
 use apple_app_store_receipts::objects::response_body::ResponseBody;
 
 #[test]
-fn de_all() -> io::Result<()> {
+fn de_all() -> Result<(), Box<dyn error::Error>> {
     let dir = PathBuf::new().join("tests/response_body_json_files");
     for entry in fs::read_dir(dir).unwrap() {
         let entry = entry?;
@@ -25,7 +23,7 @@ fn de_all() -> io::Result<()> {
                 },
                 Err(err) => {
                     eprintln!("path {:?} de failed, err: {:?}", path, err);
-                    return Err(io::Error::new(io::ErrorKind::Other, err));
+                    assert!(false, err);
                 }
             }
         }

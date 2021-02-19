@@ -32,10 +32,10 @@ impl<'a> RequestBody<'a> {
 mod tests {
     use super::*;
 
-    use std::io;
+    use std::error;
 
     #[test]
-    fn simple() -> io::Result<()> {
+    fn simple() -> Result<(), Box<dyn error::Error>> {
         assert_eq!(
             serde_json::to_string(&RequestBody::new("foo", "pw", None))?,
             r#"{"receipt-data":"foo","password":"pw"}"#
