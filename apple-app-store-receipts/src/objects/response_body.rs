@@ -66,11 +66,11 @@ pub enum Environment {
 #[derive(Deserialize, Debug, PartialEq, Eq)]
 pub enum ReceiptType {
     Production,
-    #[serde(rename = "ProductionVPP")]
-    ProductionVpp,
+    #[allow(clippy::upper_case_acronyms)]
+    ProductionVPP,
     ProductionSandbox,
-    #[serde(rename = "ProductionVPPSandbox")]
-    ProductionVppSandbox,
+    #[allow(clippy::upper_case_acronyms)]
+    ProductionVPPSandbox,
 }
 
 #[derive(Deserialize, Debug)]
