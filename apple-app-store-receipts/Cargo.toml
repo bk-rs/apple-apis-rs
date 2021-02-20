@@ -18,7 +18,7 @@ apple-web-service-endpoint = { path = "../apple-web-service-endpoint", version =
 serde = { version = "1.0", default-features = false, features = ["std", "derive"] }
 serde_json = { version = "1.0", default-features = false, features = ["std"] }
 chrono = { version = "0.4", default-features = false, features = [] }
-serde-aux = { version = "0.6", default-features = false, features = ["chrono"] }
+serde-aux = { version = "2.1", default-features = false, features = ["chrono"] }
 base64 = { version = "0.12", default-features = false, features = ["std"] }
 
 [dev-dependencies]
