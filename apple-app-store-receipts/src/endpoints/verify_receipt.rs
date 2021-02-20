@@ -51,12 +51,14 @@ impl VerifyReceipt {
 }
 
 pub enum ReceiptData {
+    #[cfg(feature = "with-base64")]
     Bytes(Vec<u8>),
     Base64String(String),
 }
 impl ReceiptData {
     pub fn data(&self) -> String {
         match self {
+            #[cfg(feature = "with-base64")]
             Self::Bytes(vec) => base64::encode(vec),
             Self::Base64String(string) => string.to_owned(),
         }

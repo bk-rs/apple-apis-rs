@@ -12,4 +12,4 @@ path = "src/iap_verify_receipt.rs"
 apple-app-store-receipts = { path = "../../apple-app-store-receipts", version = "0.1" }
 apple-web-service-isahc-client = { path = "../../apple-web-service-isahc-client", version = "0.1" }
 
-async-std = { version = "1.6", default-features = false, features = ["default", "attributes"] }
+async-std = { version = "1.9", default-features = false, features = ["default", "attributes"] }

@@ -12,6 +12,10 @@ keywords = []
 categories = []
 readme = "README.md"
 
+[features]
+default = ["with-base64"]
+with-base64 = ["base64"]
+
 [dependencies]
 apple-web-service-endpoint = { path = "../apple-web-service-endpoint", version = "0.1", default-features = false, features = [] }
 
@@ -19,10 +23,13 @@ serde = { version = "1.0", default-features = false, features = ["std", "derive"
 serde_json = { version = "1.0", default-features = false, features = ["std"] }
 chrono = { version = "0.4", default-features = false, features = [] }
 serde-aux = { version = "2.1", default-features = false, features = ["chrono"] }
-base64 = { version = "0.12", default-features = false, features = ["std"] }
+base64 = { version = "0.13", default-features = false, features = ["std"], optional = true }
 
 [dev-dependencies]
 apple-web-service-isahc-client = { path = "../apple-web-service-isahc-client", version = "0.1", default-features = false, features = [] }
 
 serde_test = "1.0"
 futures-lite = { version = "1.0", default-features = false, features = ["std"] }
+
+[package.metadata.cargo-all-features]
+skip_optional_dependencies = true
