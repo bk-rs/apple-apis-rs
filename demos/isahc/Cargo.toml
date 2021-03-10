@@ -5,6 +5,10 @@ authors = ["vkill <vkill.net@gmail.com>"]
 edition = "2018"
 
 [[bin]]
+name = "iap_verify_receipt"
+path = "src/iap_verify_receipt.rs"
+
+[[bin]]
 name = "search_ads_get_all_campaigns"
 path = "src/search_ads_get_all_campaigns.rs"
 
@@ -17,9 +21,10 @@ name = "search_ads_get_user_acl"
 path = "src/search_ads_get_user_acl.rs"
 
 [dependencies]
+apple-app-store-receipts = { path = "../../apple-app-store-receipts", version = "0.1" }
 apple-search-ads = { path = "../../apple-search-ads", version = "0.1" }
 
-apple-web-service-isahc-client = { version = "0.1" }
+apple-web-service-isahc-client = { path = "../../apple-web-service-isahc-client", version = "0.1" }
 
 futures-lite = { version = "1.11" }
 env_logger = { version = "0.8" }

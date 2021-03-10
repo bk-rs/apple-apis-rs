@@ -1,15 +1,17 @@
 /*
-cargo run -p appleapis-demo-async-std --bin iap_verify_receipt 'YOUR_APPLE_IAP_PASSWORD' 'RECEIPT_BASE64_STRING'
+cargo run -p appleapis-demo-isahc --bin iap_verify_receipt 'YOUR_APPLE_IAP_PASSWORD' 'RECEIPT_BASE64_STRING'
 */
 
 use std::{env, error};
 
 use apple_app_store_receipts::{ReceiptData, VerifyReceipt};
-use apple_web_service_isahc_client::{Client, IsahcClient};
+use apple_web_service_isahc_client::{Client as _, IsahcClient};
+use futures_lite::future::block_on;
 
-#[async_std::main]
-async fn main() -> Result<(), Box<dyn error::Error>> {
-    run().await
+fn main() -> Result<(), Box<dyn error::Error>> {
+    env_logger::init();
+
+    block_on(run())
 }
 
 async fn run() -> Result<(), Box<dyn error::Error>> {

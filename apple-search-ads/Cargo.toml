@@ -13,7 +13,7 @@ categories = []
 readme = "README.md"
 
 [dependencies]
-apple-web-service-endpoint = { version = "0.1", default-features = false, features = [] }
+apple-web-service-endpoint = { path = "../apple-web-service-endpoint", version = "0.1", default-features = false, features = [] }
 
 serde = { version = "1.0", default-features = false, features = ["std", "derive"] }
 serde_json = { version = "1.0", default-features = false, features = ["std"] }
