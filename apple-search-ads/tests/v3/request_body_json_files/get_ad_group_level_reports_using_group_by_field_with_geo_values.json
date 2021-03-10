@@ -1,0 +1,50 @@
+{
+    "startTime": "2020-02-20",
+    "endTime": "2020-02-28",
+    "selector": {
+        "orderBy": [
+            {
+                "field": "countryCode",
+                "sortOrder": "ASCENDING"
+            }
+        ],
+        "conditions": [
+            {
+                "field": "deviceClass",
+                "operator": "CONTAINS_ANY",
+                "values": [
+                    "IPAD",
+                    "IPHONE"
+                ]
+            },
+            {
+                "field": "adminArea",
+                "operator": "IN",
+                "values": [
+                    "US"
+                ]
+            },
+            {
+                "field": "locality",
+                "operator": "IN",
+                "values": [
+                    "FL"
+                ]
+            }
+        ],
+        "pagination": {
+            "offset": 0,
+            "limit": 1000
+        }
+    },
+    "groupBy": [
+        "deviceClass",
+        "countryCode",
+        "adminArea",
+        "locality"
+    ],
+    "timeZone": "UTC",
+    "returnRecordsWithNoMetrics": true,
+    "returnRowTotals": true,
+    "returnGrandTotals": true
+}

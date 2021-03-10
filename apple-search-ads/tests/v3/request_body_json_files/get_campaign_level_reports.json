@@ -1,0 +1,40 @@
+{
+    "startTime": "2020-08-04",
+    "endTime": "2020-08-14",
+    "selector": {
+        "orderBy": [
+            {
+                "field": "countryOrRegion",
+                "sortOrder": "ASCENDING"
+            }
+        ],
+        "conditions": [
+            {
+                "field": "countriesOrRegions",
+                "operator": "CONTAINS_ANY",
+                "values": [
+                    "US",
+                    "GB"
+                ]
+            },
+            {
+                "field": "countryOrRegion",
+                "operator": "IN",
+                "values": [
+                    "US"
+                ]
+            }
+        ],
+        "pagination": {
+            "offset": 0,
+            "limit": 1000
+        }
+    },
+    "groupBy": [
+        "countryOrRegion"
+    ],
+    "timeZone": "UTC",
+    "returnRecordsWithNoMetrics": true,
+    "returnRowTotals": true,
+    "returnGrandTotals": true
+}

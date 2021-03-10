@@ -1,0 +1,68 @@
+{
+    "data": {
+        "reportingDataResponse": {
+            "row": [
+                {
+                    "other": false,
+                    "granularity": [
+                        {
+                            "date": "2020-07-01"
+                        },
+                        {
+                            "date": "2020-07-02"
+                        },
+                        {
+                            "date": "2020-07-31"
+                        }
+                    ],
+                    "total": {
+                        "impressions": 0,
+                        "taps": 0,
+                        "installs": 0,
+                        "newDownloads": 0,
+                        "redownloads": 0,
+                        "latOnInstalls": 0,
+                        "latOffInstalls": 0,
+                        "ttr": 0,
+                        "avgCPA": {
+                            "amount": "0",
+                            "currency": "USD"
+                        },
+                        "avgCPT": {
+                            "amount": "0",
+                            "currency": "USD"
+                        },
+                        "localSpend": {
+                            "amount": "0",
+                            "currency": "USD"
+                        },
+                        "conversionRate": 0
+                    },
+                    "metadata": {
+                        "keywordId": 1,
+                        "keyword": "<keyword>",
+                        "keywordStatus": "ACTIVE",
+                        "matchType": "EXACT",
+                        "bidAmount": {
+                            "amount": "2",
+                            "currency": "USD"
+                        },
+                        "deleted": false,
+                        "keywordDisplayStatus": "RUNNING",
+                        "adGroupId": 1,
+                        "adGroupName": "<adGroupName>",
+                        "adGroupDeleted": false,
+                        "modificationTime": "2020-05-12T02:56:24.710",
+                        "countryOrRegion": "AU"
+                    }
+                }
+            ]
+        }
+    },
+    "pagination": {
+        "totalResults": 1,
+        "startIndex": 0,
+        "itemsPerPage": 1
+    },
+    "error": null
+}

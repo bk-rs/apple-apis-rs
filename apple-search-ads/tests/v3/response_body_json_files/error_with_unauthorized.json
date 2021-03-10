@@ -1,0 +1,13 @@
+{
+    "data": null,
+    "pagination": null,
+    "error": {
+        "errors": [
+            {
+                "messageCode": "UNAUTHORIZED",
+                "message": "Invalid cert. cert null",
+                "field": ""
+            }
+        ]
+    }
+}

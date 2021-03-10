@@ -1,0 +1,44 @@
+{
+    "startTime": "2020-07-20",
+    "endTime": "2020-07-28",
+    "selector": {
+        "orderBy": [
+            {
+                "field": "deviceClass",
+                "sortOrder": "ASCENDING"
+            }
+        ],
+        "conditions": [
+            {
+                "field": "deviceClass",
+                "operator": "CONTAINS_ANY",
+                "values": [
+                    "IPAD",
+                    "IPHONE"
+                ]
+            },
+            {
+                "field": "ageRange",
+                "operator": "IN",
+                "values": [
+                    "18-24",
+                    "25-34",
+                    "35-44",
+                    "45-54"
+                ]
+            }
+        ],
+        "pagination": {
+            "offset": 0,
+            "limit": 1000
+        }
+    },
+    "groupBy": [
+        "deviceClass",
+        "ageRange"
+    ],
+    "timeZone": "UTC",
+    "returnRecordsWithNoMetrics": true,
+    "returnRowTotals": true,
+    "returnGrandTotals": true
+}

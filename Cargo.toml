@@ -18,4 +18,5 @@ members = [
     "apple-web-service-endpoint",
     "apple-web-service-isahc-client",
     "demos/async-std",
+    "demos/isahc",
 ]

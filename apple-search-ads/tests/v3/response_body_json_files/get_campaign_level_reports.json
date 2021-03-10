@@ -1,0 +1,103 @@
+{
+    "data": {
+        "reportingDataResponse": {
+            "row": [
+                {
+                    "other": false,
+                    "total": {
+                        "impressions": 75,
+                        "taps": 49,
+                        "installs": 12,
+                        "newDownloads": 3,
+                        "redownloads": 9,
+                        "latOnInstalls": 5,
+                        "latOffInstalls": 2,
+                        "ttr": 4,
+                        "avgCPA": {
+                            "amount": "200",
+                            "currency": "USD"
+                        },
+                        "avgCPT": {
+                            "amount": "300",
+                            "currency": "USD"
+                        },
+                        "localSpend": {
+                            "amount": "100",
+                            "currency": "USD"
+                        },
+                        "conversionRate": 2
+                    },
+                    "metadata": {
+                        "adChannelType": "SEARCH",
+                        "supplySources": [
+                            "APPSTORE_SEARCH_RESULTS"
+                        ],
+                        "campaignId": 472565696,
+                        "campaignName": "<campaign name>",
+                        "deleted": false,
+                        "campaignStatus": "ENABLED",
+                        "app": {
+                            "appName": "<app name>",
+                            "adamId": 281796108
+                        },
+                        "servingStatus": "NOT_RUNNING",
+                        "servingStateReasons": [
+                            "CAMPAIGN_START_DATE_IN_FUTURE"
+                        ],
+                        "countriesOrRegions": [
+                            "CA",
+                            "JP",
+                            "NZ",
+                            "US"
+                        ],
+                        "modificationTime": "2019-02-21T23:58:05.316",
+                        "totalBudget": {
+                            "amount": "2000",
+                            "currency": "USD"
+                        },
+                        "dailyBudget": {
+                            "amount": "300",
+                            "currency": "USD"
+                        },
+                        "displayStatus": "ON_HOLD",
+                        "orgId": 35586380,
+                        "countryOrRegionServingStateReasons": {},
+                        "countryOrRegion": "US"
+                    }
+                }
+            ],
+            "grandTotals": {
+                "other": false,
+                "total": {
+                    "impressions": 58,
+                    "taps": 45,
+                    "installs": 9,
+                    "newDownloads": 4,
+                    "redownloads": 2,
+                    "latOnInstalls": 4,
+                    "latOffInstalls": 10,
+                    "ttr": 3,
+                    "avgCPA": {
+                        "amount": "300",
+                        "currency": "USD"
+                    },
+                    "avgCPT": {
+                        "amount": "250",
+                        "currency": "USD"
+                    },
+                    "localSpend": {
+                        "amount": "100",
+                        "currency": "USD"
+                    },
+                    "conversionRate": 2
+                }
+            }
+        }
+    },
+    "pagination": {
+        "totalResults": 18,
+        "startIndex": 0,
+        "itemsPerPage": 18
+    },
+    "error": null
+}

@@ -1,0 +1,113 @@
+{
+    "data": {
+        "reportingDataResponse": {
+            "row": [
+                {
+                    "other": false,
+                    "granularity": [
+                        {
+                            "impressions": 210,
+                            "taps": 30,
+                            "installs": 19,
+                            "newDownloads": 13,
+                            "redownloads": 6,
+                            "latOnInstalls": 0,
+                            "latOffInstalls": 19,
+                            "ttr": 0.1429,
+                            "avgCPA": {
+                                "amount": "0.5974",
+                                "currency": "USD"
+                            },
+                            "avgCPT": {
+                                "amount": "0.3783",
+                                "currency": "USD"
+                            },
+                            "localSpend": {
+                                "amount": "11.35",
+                                "currency": "USD"
+                            },
+                            "conversionRate": 0.6333,
+                            "date": "2019-05-07"
+                        },
+                        {
+                            "impressions": 198,
+                            "taps": 31,
+                            "installs": 23,
+                            "newDownloads": 15,
+                            "redownloads": 8,
+                            "latOnInstalls": 0,
+                            "latOffInstalls": 23,
+                            "ttr": 0.1566,
+                            "avgCPA": {
+                                "amount": "0.4696",
+                                "currency": "USD"
+                            },
+                            "avgCPT": {
+                                "amount": "0.3484",
+                                "currency": "USD"
+                            },
+                            "localSpend": {
+                                "amount": "10.8",
+                                "currency": "USD"
+                            },
+                            "conversionRate": 0.7419,
+                            "date": "2019-05-08"
+                        },
+                        {
+                            "impressions": 236,
+                            "taps": 29,
+                            "installs": 25,
+                            "newDownloads": 20,
+                            "redownloads": 5,
+                            "latOnInstalls": 0,
+                            "latOffInstalls": 25,
+                            "ttr": 0.1229,
+                            "avgCPA": {
+                                "amount": "0.4908",
+                                "currency": "USD"
+                            },
+                            "avgCPT": {
+                                "amount": "0.4231",
+                                "currency": "USD"
+                            },
+                            "localSpend": {
+                                "amount": "12.27",
+                                "currency": "USD"
+                            },
+                            "conversionRate": 0.8621,
+                            "date": "2019-05-09"
+                        }
+                    ],
+                    "metadata": {
+                        "adGroupId": 1,
+                        "adGroupName": "<adGroupName>",
+                        "startTime": "2018-01-31T00:00:00.000",
+                        "endTime": null,
+                        "cpaGoal": null,
+                        "defaultCpcBid": {
+                            "amount": "1.9",
+                            "currency": "USD"
+                        },
+                        "deleted": false,
+                        "adGroupStatus": "ENABLED",
+                        "adGroupServingStatus": "RUNNING",
+                        "adGroupServingStateReasons": null,
+                        "modificationTime": "2019-01-30T10:35:50.194",
+                        "automatedKeywordsOptIn": false,
+                        "adGroupDisplayStatus": "RUNNING",
+                        "campaignId": 472565696,
+                        "orgId": 35586380,
+                        "countryOrRegion": "US",
+                        "deviceClass": "iPhone"
+                    }
+                }
+            ]
+        }
+    },
+    "pagination": {
+        "totalResults": 1,
+        "startIndex": 0,
+        "itemsPerPage": 1
+    },
+    "error": null
+}

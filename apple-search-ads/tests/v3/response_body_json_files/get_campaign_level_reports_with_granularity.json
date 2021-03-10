@@ -1,0 +1,983 @@
+{
+    "data": {
+        "reportingDataResponse": {
+            "row": [
+                {
+                    "other": false,
+                    "granularity": [
+                        {
+                            "date": "2020-08-04"
+                        },
+                        {
+                            "date": "2020-08-05"
+                        },
+                        {
+                            "date": "2020-08-06"
+                        },
+                        {
+                            "date": "2020-08-07"
+                        },
+                        {
+                            "date": "2020-08-08"
+                        },
+                        {
+                            "date": "2020-08-09"
+                        },
+                        {
+                            "date": "2020-08-10"
+                        },
+                        {
+                            "date": "2020-08-11"
+                        },
+                        {
+                            "date": "2020-08-12"
+                        },
+                        {
+                            "date": "2020-08-13"
+                        },
+                        {
+                            "date": "2020-08-14"
+                        }
+                    ],
+                    "total": {
+                        "impressions": 0,
+                        "taps": 0,
+                        "installs": 0,
+                        "newDownloads": 0,
+                        "redownloads": 0,
+                        "latOnInstalls": 0,
+                        "latOffInstalls": 0,
+                        "ttr": 0.0,
+                        "avgCPA": {
+                            "amount": "0",
+                            "currency": "USD"
+                        },
+                        "avgCPT": {
+                            "amount": "0",
+                            "currency": "USD"
+                        },
+                        "localSpend": {
+                            "amount": "0",
+                            "currency": "USD"
+                        },
+                        "conversionRate": 0.0
+                    },
+                    "metadata": {
+                        "campaignId": 472566018,
+                        "campaignName": "DO_NOT_DELETE_Facbook_E2E_Search",
+                        "deleted": false,
+                        "campaignStatus": "ENABLED",
+                        "app": {
+                            "appName": "Facebook",
+                            "adamId": 284882215
+                        },
+                        "servingStatus": "RUNNING",
+                        "servingStateReasons": null,
+                        "countriesOrRegions": [
+                            "US"
+                        ],
+                        "modificationTime": "2020-06-29T08: 46: 08.848",
+                        "totalBudget": {
+                            "amount": "10000000",
+                            "currency": "USD"
+                        },
+                        "dailyBudget": {
+                            "amount": "200",
+                            "currency": "USD"
+                        },
+                        "displayStatus": "RUNNING",
+                        "supplySources": [
+                            "APPSTORE_SEARCH_RESULTS"
+                        ],
+                        "adChannelType": "SEARCH",
+                        "orgId": 35586380,
+                        "countryOrRegionServingStateReasons": {},
+                        "countryOrRegion": "US"
+                    }
+                },
+                {
+                    "other": false,
+                    "granularity": [
+                        {
+                            "date": "2020-08-04"
+                        },
+                        {
+                            "date": "2020-08-05"
+                        },
+                        {
+                            "date": "2020-08-06"
+                        },
+                        {
+                            "date": "2020-08-07"
+                        },
+                        {
+                            "date": "2020-08-08"
+                        },
+                        {
+                            "date": "2020-08-09"
+                        },
+                        {
+                            "date": "2020-08-10"
+                        },
+                        {
+                            "date": "2020-08-11"
+                        },
+                        {
+                            "date": "2020-08-12"
+                        },
+                        {
+                            "date": "2020-08-13"
+                        },
+                        {
+                            "date": "2020-08-14"
+                        }
+                    ],
+                    "total": {
+                        "impressions": 0,
+                        "taps": 0,
+                        "installs": 0,
+                        "newDownloads": 0,
+                        "redownloads": 0,
+                        "latOnInstalls": 0,
+                        "latOffInstalls": 0,
+                        "ttr": 0.0,
+                        "avgCPA": {
+                            "amount": "0",
+                            "currency": "USD"
+                        },
+                        "avgCPT": {
+                            "amount": "0",
+                            "currency": "USD"
+                        },
+                        "localSpend": {
+                            "amount": "0",
+                            "currency": "USD"
+                        },
+                        "conversionRate": 0.0
+                    },
+                    "metadata": {
+                        "campaignId": 472565696,
+                        "campaignName": "DO_NOT_DELETE_EvernoteSearch",
+                        "deleted": false,
+                        "campaignStatus": "ENABLED",
+                        "app": {
+                            "appName": "Evernote",
+                            "adamId": 281796108
+                        },
+                        "servingStatus": "RUNNING",
+                        "servingStateReasons": null,
+                        "countriesOrRegions": [
+                            "US"
+                        ],
+                        "modificationTime": "2020-06-29T08: 39: 55.901",
+                        "totalBudget": {
+                            "amount": "10000000",
+                            "currency": "USD"
+                        },
+                        "dailyBudget": {
+                            "amount": "200",
+                            "currency": "USD"
+                        },
+                        "displayStatus": "RUNNING",
+                        "supplySources": [
+                            "APPSTORE_SEARCH_RESULTS"
+                        ],
+                        "adChannelType": "SEARCH",
+                        "orgId": 35586380,
+                        "countryOrRegionServingStateReasons": {},
+                        "countryOrRegion": "US"
+                    }
+                },
+                {
+                    "other": false,
+                    "granularity": [
+                        {
+                            "date": "2020-08-04"
+                        },
+                        {
+                            "date": "2020-08-05"
+                        },
+                        {
+                            "date": "2020-08-06"
+                        },
+                        {
+                            "date": "2020-08-07"
+                        },
+                        {
+                            "date": "2020-08-08"
+                        },
+                        {
+                            "date": "2020-08-09"
+                        },
+                        {
+                            "date": "2020-08-10"
+                        },
+                        {
+                            "date": "2020-08-11"
+                        },
+                        {
+                            "date": "2020-08-12"
+                        },
+                        {
+                            "date": "2020-08-13"
+                        },
+                        {
+                            "date": "2020-08-14"
+                        }
+                    ],
+                    "total": {
+                        "impressions": 0,
+                        "taps": 0,
+                        "installs": 0,
+                        "newDownloads": 0,
+                        "redownloads": 0,
+                        "latOnInstalls": 0,
+                        "latOffInstalls": 0,
+                        "ttr": 0.0,
+                        "avgCPA": {
+                            "amount": "0",
+                            "currency": "USD"
+                        },
+                        "avgCPT": {
+                            "amount": "0",
+                            "currency": "USD"
+                        },
+                        "localSpend": {
+                            "amount": "0",
+                            "currency": "USD"
+                        },
+                        "conversionRate": 0.0
+                    },
+                    "metadata": {
+                        "campaignId": 468901935,
+                        "campaignName": "V3 Search Campaign",
+                        "deleted": false,
+                        "campaignStatus": "ENABLED",
+                        "app": {
+                            "appName": "Pokémon GO",
+                            "adamId": 1094591345
+                        },
+                        "servingStatus": "NOT_RUNNING",
+                        "servingStateReasons": [
+                            "CAMPAIGN_START_DATE_IN_FUTURE"
+                        ],
+                        "countriesOrRegions": [
+                            "US"
+                        ],
+                        "modificationTime": "2020-06-18T03: 12: 38.438",
+                        "totalBudget": {
+                            "amount": "1524.87",
+                            "currency": "USD"
+                        },
+                        "dailyBudget": {
+                            "amount": "270.26",
+                            "currency": "USD"
+                        },
+                        "displayStatus": "ON_HOLD",
+                        "supplySources": [
+                            "APPSTORE_SEARCH_RESULTS"
+                        ],
+                        "adChannelType": "SEARCH",
+                        "orgId": 35586380,
+                        "countryOrRegionServingStateReasons": {},
+                        "countryOrRegion": "US"
+                    }
+                },
+                {
+                    "other": false,
+                    "granularity": [
+                        {
+                            "date": "2020-08-04"
+                        },
+                        {
+                            "date": "2020-08-05"
+                        },
+                        {
+                            "date": "2020-08-06"
+                        },
+                        {
+                            "date": "2020-08-07"
+                        },
+                        {
+                            "date": "2020-08-08"
+                        },
+                        {
+                            "date": "2020-08-09"
+                        },
+                        {
+                            "date": "2020-08-10"
+                        },
+                        {
+                            "date": "2020-08-11"
+                        },
+                        {
+                            "date": "2020-08-12"
+                        },
+                        {
+                            "date": "2020-08-13"
+                        },
+                        {
+                            "date": "2020-08-14"
+                        }
+                    ],
+                    "total": {
+                        "impressions": 0,
+                        "taps": 0,
+                        "installs": 0,
+                        "newDownloads": 0,
+                        "redownloads": 0,
+                        "latOnInstalls": 0,
+                        "latOffInstalls": 0,
+                        "ttr": 0.0,
+                        "avgCPA": {
+                            "amount": "0",
+                            "currency": "USD"
+                        },
+                        "avgCPT": {
+                            "amount": "0",
+                            "currency": "USD"
+                        },
+                        "localSpend": {
+                            "amount": "0",
+                            "currency": "USD"
+                        },
+                        "conversionRate": 0.0
+                    },
+                    "metadata": {
+                        "campaignId": 446782167,
+                        "campaignName": "DO_NOT_DELETE_Search_Youtube_US",
+                        "deleted": false,
+                        "campaignStatus": "PAUSED",
+                        "app": {
+                            "appName": "YouTube: Watch, Listen, Stream",
+                            "adamId": 544007664
+                        },
+                        "servingStatus": "NOT_RUNNING",
+                        "servingStateReasons": [
+                            "PAUSED_BY_USER"
+                        ],
+                        "countriesOrRegions": [
+                            "US"
+                        ],
+                        "modificationTime": "2020-06-29T08: 47: 06.063",
+                        "totalBudget": {
+                            "amount": "1000000",
+                            "currency": "USD"
+                        },
+                        "dailyBudget": {
+                            "amount": "200",
+                            "currency": "USD"
+                        },
+                        "displayStatus": "PAUSED",
+                        "supplySources": [
+                            "APPSTORE_SEARCH_RESULTS"
+                        ],
+                        "adChannelType": "SEARCH",
+                        "orgId": 35586380,
+                        "countryOrRegionServingStateReasons": {},
+                        "countryOrRegion": "US"
+                    }
+                },
+                {
+                    "other": false,
+                    "granularity": [
+                        {
+                            "date": "2020-08-04"
+                        },
+                        {
+                            "date": "2020-08-05"
+                        },
+                        {
+                            "date": "2020-08-06"
+                        },
+                        {
+                            "date": "2020-08-07"
+                        },
+                        {
+                            "date": "2020-08-08"
+                        },
+                        {
+                            "date": "2020-08-09"
+                        },
+                        {
+                            "date": "2020-08-10"
+                        },
+                        {
+                            "date": "2020-08-11"
+                        },
+                        {
+                            "date": "2020-08-12"
+                        },
+                        {
+                            "date": "2020-08-13"
+                        },
+                        {
+                            "date": "2020-08-14"
+                        }
+                    ],
+                    "total": {
+                        "impressions": 0,
+                        "taps": 0,
+                        "installs": 0,
+                        "newDownloads": 0,
+                        "redownloads": 0,
+                        "latOnInstalls": 0,
+                        "latOffInstalls": 0,
+                        "ttr": 0.0,
+                        "avgCPA": {
+                            "amount": "0",
+                            "currency": "USD"
+                        },
+                        "avgCPT": {
+                            "amount": "0",
+                            "currency": "USD"
+                        },
+                        "localSpend": {
+                            "amount": "0",
+                            "currency": "USD"
+                        },
+                        "conversionRate": 0.0
+                    },
+                    "metadata": {
+                        "campaignId": 444227665,
+                        "campaignName": "hjhaxjgxsjg",
+                        "deleted": false,
+                        "campaignStatus": "PAUSED",
+                        "app": {
+                            "appName": "IndiGo | Flight Booking App",
+                            "adamId": 726070762
+                        },
+                        "servingStatus": "NOT_RUNNING",
+                        "servingStateReasons": [
+                            "PAUSED_BY_USER"
+                        ],
+                        "countriesOrRegions": [
+                            "AU",
+                            "CA",
+                            "GB",
+                            "US"
+                        ],
+                        "modificationTime": "2020-06-08T22: 08: 28.078",
+                        "totalBudget": {
+                            "amount": "1000000",
+                            "currency": "USD"
+                        },
+                        "dailyBudget": {
+                            "amount": "200",
+                            "currency": "USD"
+                        },
+                        "displayStatus": "PAUSED",
+                        "supplySources": [
+                            "APPSTORE_SEARCH_RESULTS"
+                        ],
+                        "adChannelType": "SEARCH",
+                        "orgId": 35586380,
+                        "countryOrRegionServingStateReasons": {},
+                        "countryOrRegion": "US"
+                    }
+                },
+                {
+                    "other": false,
+                    "granularity": [
+                        {
+                            "impressions": 13,
+                            "taps": 13,
+                            "installs": 0,
+                            "newDownloads": 0,
+                            "redownloads": 0,
+                            "latOnInstalls": 0,
+                            "latOffInstalls": 0,
+                            "ttr": 1.0,
+                            "avgCPA": {
+                                "amount": "0",
+                                "currency": "USD"
+                            },
+                            "avgCPT": {
+                                "amount": "0.15",
+                                "currency": "USD"
+                            },
+                            "localSpend": {
+                                "amount": "1.95",
+                                "currency": "USD"
+                            },
+                            "conversionRate": 0.0,
+                            "date": "2020-08-04"
+                        },
+                        {
+                            "impressions": 0,
+                            "taps": 0,
+                            "installs": 0,
+                            "newDownloads": 0,
+                            "redownloads": 0,
+                            "latOnInstalls": 0,
+                            "latOffInstalls": 0,
+                            "ttr": 0.0,
+                            "avgCPA": {
+                                "amount": "0",
+                                "currency": "USD"
+                            },
+                            "avgCPT": {
+                                "amount": "0",
+                                "currency": "USD"
+                            },
+                            "localSpend": {
+                                "amount": "0",
+                                "currency": "USD"
+                            },
+                            "conversionRate": 0.0,
+                            "date": "2020-08-05"
+                        },
+                        {
+                            "impressions": 0,
+                            "taps": 0,
+                            "installs": 0,
+                            "newDownloads": 0,
+                            "redownloads": 0,
+                            "latOnInstalls": 0,
+                            "latOffInstalls": 0,
+                            "ttr": 0.0,
+                            "avgCPA": {
+                                "amount": "0",
+                                "currency": "USD"
+                            },
+                            "avgCPT": {
+                                "amount": "0",
+                                "currency": "USD"
+                            },
+                            "localSpend": {
+                                "amount": "0",
+                                "currency": "USD"
+                            },
+                            "conversionRate": 0.0,
+                            "date": "2020-08-06"
+                        },
+                        {
+                            "impressions": 0,
+                            "taps": 0,
+                            "installs": 0,
+                            "newDownloads": 0,
+                            "redownloads": 0,
+                            "latOnInstalls": 0,
+                            "latOffInstalls": 0,
+                            "ttr": 0.0,
+                            "avgCPA": {
+                                "amount": "0",
+                                "currency": "USD"
+                            },
+                            "avgCPT": {
+                                "amount": "0",
+                                "currency": "USD"
+                            },
+                            "localSpend": {
+                                "amount": "0",
+                                "currency": "USD"
+                            },
+                            "conversionRate": 0.0,
+                            "date": "2020-08-07"
+                        },
+                        {
+                            "impressions": 0,
+                            "taps": 0,
+                            "installs": 0,
+                            "newDownloads": 0,
+                            "redownloads": 0,
+                            "latOnInstalls": 0,
+                            "latOffInstalls": 0,
+                            "ttr": 0.0,
+                            "avgCPA": {
+                                "amount": "0",
+                                "currency": "USD"
+                            },
+                            "avgCPT": {
+                                "amount": "0",
+                                "currency": "USD"
+                            },
+                            "localSpend": {
+                                "amount": "0",
+                                "currency": "USD"
+                            },
+                            "conversionRate": 0.0,
+                            "date": "2020-08-08"
+                        },
+                        {
+                            "impressions": 0,
+                            "taps": 0,
+                            "installs": 0,
+                            "newDownloads": 0,
+                            "redownloads": 0,
+                            "latOnInstalls": 0,
+                            "latOffInstalls": 0,
+                            "ttr": 0.0,
+                            "avgCPA": {
+                                "amount": "0",
+                                "currency": "USD"
+                            },
+                            "avgCPT": {
+                                "amount": "0",
+                                "currency": "USD"
+                            },
+                            "localSpend": {
+                                "amount": "0",
+                                "currency": "USD"
+                            },
+                            "conversionRate": 0.0,
+                            "date": "2020-08-09"
+                        },
+                        {
+                            "impressions": 0,
+                            "taps": 0,
+                            "installs": 0,
+                            "newDownloads": 0,
+                            "redownloads": 0,
+                            "latOnInstalls": 0,
+                            "latOffInstalls": 0,
+                            "ttr": 0.0,
+                            "avgCPA": {
+                                "amount": "0",
+                                "currency": "USD"
+                            },
+                            "avgCPT": {
+                                "amount": "0",
+                                "currency": "USD"
+                            },
+                            "localSpend": {
+                                "amount": "0",
+                                "currency": "USD"
+                            },
+                            "conversionRate": 0.0,
+                            "date": "2020-08-10"
+                        },
+                        {
+                            "impressions": 0,
+                            "taps": 0,
+                            "installs": 0,
+                            "newDownloads": 0,
+                            "redownloads": 0,
+                            "latOnInstalls": 0,
+                            "latOffInstalls": 0,
+                            "ttr": 0.0,
+                            "avgCPA": {
+                                "amount": "0",
+                                "currency": "USD"
+                            },
+                            "avgCPT": {
+                                "amount": "0",
+                                "currency": "USD"
+                            },
+                            "localSpend": {
+                                "amount": "0",
+                                "currency": "USD"
+                            },
+                            "conversionRate": 0.0,
+                            "date": "2020-08-11"
+                        },
+                        {
+                            "impressions": 0,
+                            "taps": 0,
+                            "installs": 0,
+                            "newDownloads": 0,
+                            "redownloads": 0,
+                            "latOnInstalls": 0,
+                            "latOffInstalls": 0,
+                            "ttr": 0.0,
+                            "avgCPA": {
+                                "amount": "0",
+                                "currency": "USD"
+                            },
+                            "avgCPT": {
+                                "amount": "0",
+                                "currency": "USD"
+                            },
+                            "localSpend": {
+                                "amount": "0",
+                                "currency": "USD"
+                            },
+                            "conversionRate": 0.0,
+                            "date": "2020-08-12"
+                        },
+                        {
+                            "impressions": 0,
+                            "taps": 0,
+                            "installs": 0,
+                            "newDownloads": 0,
+                            "redownloads": 0,
+                            "latOnInstalls": 0,
+                            "latOffInstalls": 0,
+                            "ttr": 0.0,
+                            "avgCPA": {
+                                "amount": "0",
+                                "currency": "USD"
+                            },
+                            "avgCPT": {
+                                "amount": "0",
+                                "currency": "USD"
+                            },
+                            "localSpend": {
+                                "amount": "0",
+                                "currency": "USD"
+                            },
+                            "conversionRate": 0.0,
+                            "date": "2020-08-13"
+                        },
+                        {
+                            "impressions": 0,
+                            "taps": 0,
+                            "installs": 0,
+                            "newDownloads": 0,
+                            "redownloads": 0,
+                            "latOnInstalls": 0,
+                            "latOffInstalls": 0,
+                            "ttr": 0.0,
+                            "avgCPA": {
+                                "amount": "0",
+                                "currency": "USD"
+                            },
+                            "avgCPT": {
+                                "amount": "0",
+                                "currency": "USD"
+                            },
+                            "localSpend": {
+                                "amount": "0",
+                                "currency": "USD"
+                            },
+                            "conversionRate": 0.0,
+                            "date": "2020-08-14"
+                        }
+                    ],
+                    "metadata": {
+                        "campaignId": 444227664,
+                        "campaignName": "DO_NOT_DELETE_E2E_Pandora_US_SingleAdgroup",
+                        "deleted": false,
+                        "campaignStatus": "ENABLED",
+                        "app": {
+                            "appName": "Instagram",
+                            "adamId": 389801252
+                        },
+                        "servingStatus": "RUNNING",
+                        "servingStateReasons": null,
+                        "countriesOrRegions": [
+                            "US"
+                        ],
+                        "modificationTime": "2020-06-19T06: 46: 22.893",
+                        "totalBudget": {
+                            "amount": "1000000",
+                            "currency": "USD"
+                        },
+                        "dailyBudget": {
+                            "amount": "200",
+                            "currency": "USD"
+                        },
+                        "displayStatus": "RUNNING",
+                        "supplySources": [
+                            "NEWS",
+                            "STOCKS"
+                        ],
+                        "adChannelType": "DISPLAY",
+                        "orgId": 35586380,
+                        "countryOrRegionServingStateReasons": {},
+                        "countryOrRegion": "US"
+                    }
+                },
+                {
+                    "other": false,
+                    "granularity": [
+                        {
+                            "date": "2020-08-04"
+                        },
+                        {
+                            "date": "2020-08-05"
+                        },
+                        {
+                            "date": "2020-08-06"
+                        },
+                        {
+                            "date": "2020-08-07"
+                        },
+                        {
+                            "date": "2020-08-08"
+                        },
+                        {
+                            "date": "2020-08-09"
+                        },
+                        {
+                            "date": "2020-08-10"
+                        },
+                        {
+                            "date": "2020-08-11"
+                        },
+                        {
+                            "date": "2020-08-12"
+                        },
+                        {
+                            "date": "2020-08-13"
+                        },
+                        {
+                            "date": "2020-08-14"
+                        }
+                    ],
+                    "total": {
+                        "impressions": 0,
+                        "taps": 0,
+                        "installs": 0,
+                        "newDownloads": 0,
+                        "redownloads": 0,
+                        "latOnInstalls": 0,
+                        "latOffInstalls": 0,
+                        "ttr": 0.0,
+                        "avgCPA": {
+                            "amount": "0",
+                            "currency": "USD"
+                        },
+                        "avgCPT": {
+                            "amount": "0",
+                            "currency": "USD"
+                        },
+                        "localSpend": {
+                            "amount": "0",
+                            "currency": "USD"
+                        },
+                        "conversionRate": 0.0
+                    },
+                    "metadata": {
+                        "campaignId": 444227663,
+                        "campaignName": "DO_NOT_DELETE_E2E_PandoraUS_MutiAdgroup",
+                        "deleted": false,
+                        "campaignStatus": "PAUSED",
+                        "app": {
+                            "appName": "Netflix",
+                            "adamId": 363590051
+                        },
+                        "servingStatus": "NOT_RUNNING",
+                        "servingStateReasons": [
+                            "PAUSED_BY_USER"
+                        ],
+                        "countriesOrRegions": [
+                            "US"
+                        ],
+                        "modificationTime": "2020-06-08T16: 46: 06.595",
+                        "totalBudget": {
+                            "amount": "1000000",
+                            "currency": "USD"
+                        },
+                        "dailyBudget": {
+                            "amount": "200",
+                            "currency": "USD"
+                        },
+                        "displayStatus": "PAUSED",
+                        "supplySources": [
+                            "NEWS",
+                            "STOCKS"
+                        ],
+                        "adChannelType": "DISPLAY",
+                        "orgId": 35586380,
+                        "countryOrRegionServingStateReasons": {},
+                        "countryOrRegion": "US"
+                    }
+                },
+                {
+                    "other": false,
+                    "granularity": [
+                        {
+                            "date": "2020-08-04"
+                        },
+                        {
+                            "date": "2020-08-05"
+                        },
+                        {
+                            "date": "2020-08-06"
+                        },
+                        {
+                            "date": "2020-08-07"
+                        },
+                        {
+                            "date": "2020-08-08"
+                        },
+                        {
+                            "date": "2020-08-09"
+                        },
+                        {
+                            "date": "2020-08-10"
+                        },
+                        {
+                            "date": "2020-08-11"
+                        },
+                        {
+                            "date": "2020-08-12"
+                        },
+                        {
+                            "date": "2020-08-13"
+                        },
+                        {
+                            "date": "2020-08-14"
+                        }
+                    ],
+                    "total": {
+                        "impressions": 0,
+                        "taps": 0,
+                        "installs": 0,
+                        "newDownloads": 0,
+                        "redownloads": 0,
+                        "latOnInstalls": 0,
+                        "latOffInstalls": 0,
+                        "ttr": 0.0,
+                        "avgCPA": {
+                            "amount": "0",
+                            "currency": "USD"
+                        },
+                        "avgCPT": {
+                            "amount": "0",
+                            "currency": "USD"
+                        },
+                        "localSpend": {
+                            "amount": "0",
+                            "currency": "USD"
+                        },
+                        "conversionRate": 0.0
+                    },
+                    "metadata": {
+                        "campaignId": 444226435,
+                        "campaignName": "DO_NOT_DELETE_E2E_Search_USUKAU",
+                        "deleted": false,
+                        "campaignStatus": "PAUSED",
+                        "app": {
+                            "appName": "LinkedIn: Network & Job Finder",
+                            "adamId": 288429040
+                        },
+                        "servingStatus": "NOT_RUNNING",
+                        "servingStateReasons": [
+                            "PAUSED_BY_USER"
+                        ],
+                        "countriesOrRegions": [
+                            "AU",
+                            "GB",
+                            "US"
+                        ],
+                        "modificationTime": "2020-06-08T16: 46: 06.648",
+                        "totalBudget": {
+                            "amount": "1000000",
+                            "currency": "USD"
+                        },
+                        "dailyBudget": {
+                            "amount": "200",
+                            "currency": "USD"
+                        },
+                        "displayStatus": "PAUSED",
+                        "supplySources": [
+                            "APPSTORE_SEARCH_RESULTS"
+                        ],
+                        "adChannelType": "SEARCH",
+                        "orgId": 35586380,
+                        "countryOrRegionServingStateReasons": {},
+                        "countryOrRegion": "US"
+                    }
+                }
+            ]
+        }
+    },
+    "pagination": {
+        "totalResults": 8,
+        "startIndex": 0,
+        "itemsPerPage": 8
+    },
+    "error": null
+}

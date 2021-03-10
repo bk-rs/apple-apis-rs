@@ -1,0 +1,17 @@
+{
+    "data": [
+        {
+            "orgName": "orgName",
+            "orgId": 1,
+            "currency": "USD",
+            "timeZone": "Asia/Hong_Kong",
+            "paymentModel": "LOC",
+            "roleNames": [
+                "Campaign Group Manager"
+            ],
+            "certExpirationDate": null
+        }
+    ],
+    "pagination": null,
+    "error": null
+}

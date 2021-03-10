@@ -1,0 +1,169 @@
+{
+    "data": {
+        "reportingDataResponse": {
+            "row": [
+                {
+                    "other": true,
+                    "total": {
+                        "impressions": 41,
+                        "taps": 1,
+                        "installs": 0,
+                        "newDownloads": 0,
+                        "redownloads": 0,
+                        "latOnInstalls": 0,
+                        "latOffInstalls": 0,
+                        "ttr": 0.0244,
+                        "avgCPA": {
+                            "amount": "0",
+                            "currency": "USD"
+                        },
+                        "avgCPT": {
+                            "amount": "0.88",
+                            "currency": "USD"
+                        },
+                        "localSpend": {
+                            "amount": "0.88",
+                            "currency": "USD"
+                        },
+                        "conversionRate": 0
+                    },
+                    "metadata": {
+                        "keywordId": 1,
+                        "keyword": "<keyword>",
+                        "matchType": "EXACT",
+                        "bidAmount": {
+                            "amount": "2",
+                            "currency": "USD"
+                        },
+                        "deleted": false,
+                        "keywordDisplayStatus": "RUNNING",
+                        "adGroupId": 1,
+                        "adGroupName": "<adGroupName>",
+                        "adGroupDeleted": false,
+                        "searchTermText": null,
+                        "countryOrRegion": "AU",
+                        "searchTermSource": "TARGETED"
+                    }
+                },
+                {
+                    "other": false,
+                    "total": {
+                        "impressions": 12,
+                        "taps": 1,
+                        "installs": 0,
+                        "newDownloads": 0,
+                        "redownloads": 0,
+                        "latOnInstalls": 0,
+                        "latOffInstalls": 0,
+                        "ttr": 0.0833,
+                        "avgCPA": {
+                            "amount": "0",
+                            "currency": "USD"
+                        },
+                        "avgCPT": {
+                            "amount": "1.27",
+                            "currency": "USD"
+                        },
+                        "localSpend": {
+                            "amount": "1.27",
+                            "currency": "USD"
+                        },
+                        "conversionRate": 0
+                    },
+                    "metadata": {
+                        "keywordId": 1,
+                        "keyword": "<keyword>",
+                        "matchType": "EXACT",
+                        "bidAmount": {
+                            "amount": "2",
+                            "currency": "USD"
+                        },
+                        "deleted": false,
+                        "keywordDisplayStatus": "RUNNING",
+                        "adGroupId": 1,
+                        "adGroupName": "<adGroupName>",
+                        "adGroupDeleted": false,
+                        "searchTermText": "meet up",
+                        "countryOrRegion": "AU",
+                        "searchTermSource": "TARGETED"
+                    }
+                },
+                {
+                    "other": true,
+                    "total": {
+                        "impressions": 2,
+                        "taps": 0,
+                        "installs": 0,
+                        "newDownloads": 0,
+                        "redownloads": 0,
+                        "latOnInstalls": 0,
+                        "latOffInstalls": 0,
+                        "ttr": 0,
+                        "avgCPA": {
+                            "amount": "0",
+                            "currency": "USD"
+                        },
+                        "avgCPT": {
+                            "amount": "0",
+                            "currency": "USD"
+                        },
+                        "localSpend": {
+                            "amount": "0",
+                            "currency": "USD"
+                        },
+                        "conversionRate": 0
+                    },
+                    "metadata": {
+                        "keywordId": 1,
+                        "keyword": "<keyword>",
+                        "matchType": "EXACT",
+                        "bidAmount": {
+                            "amount": "2",
+                            "currency": "USD"
+                        },
+                        "deleted": false,
+                        "keywordDisplayStatus": "PAUSED",
+                        "adGroupId": 1,
+                        "adGroupName": "<adGroupName>",
+                        "adGroupDeleted": false,
+                        "searchTermText": null,
+                        "countryOrRegion": "AU",
+                        "searchTermSource": "TARGETED"
+                    }
+                }
+            ],
+            "grandTotals": {
+                "other": false,
+                "total": {
+                    "impressions": 976,
+                    "taps": 36,
+                    "installs": 13,
+                    "newDownloads": 13,
+                    "redownloads": 0,
+                    "latOnInstalls": 0,
+                    "latOffInstalls": 13,
+                    "ttr": 0.0369,
+                    "avgCPA": {
+                        "amount": "3.3969",
+                        "currency": "USD"
+                    },
+                    "avgCPT": {
+                        "amount": "1.2267",
+                        "currency": "USD"
+                    },
+                    "localSpend": {
+                        "amount": "44.16",
+                        "currency": "USD"
+                    },
+                    "conversionRate": 0.3611
+                }
+            }
+        }
+    },
+    "pagination": {
+        "totalResults": 11,
+        "startIndex": 0,
+        "itemsPerPage": 11
+    },
+    "error": null
+}

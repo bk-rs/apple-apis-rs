@@ -1,0 +1,23 @@
+{
+    "startTime": "2020-06-03",
+    "endTime": "2020-06-11",
+    "timeZone": "ORTZ",
+    "selector": {
+        "orderBy": [
+            {
+                "field": "impressions",
+                "sortOrder": "DESCENDING"
+            }
+        ],
+        "pagination": {
+            "offset": 0,
+            "limit": 1000
+        }
+    },
+    "groupBy": [
+        "countryOrRegion"
+    ],
+    "returnRecordsWithNoMetrics": "false",
+    "returnRowTotals": true,
+    "returnGrandTotals": true
+}

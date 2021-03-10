@@ -1,6 +1,6 @@
 [package]
 name = "apple-search-ads"
-version = "0.0.0"
+version = "0.1.0"
 authors = ["vkill <vkill.net@gmail.com>"]
 edition = "2018"
 description = "Apple - Apple Search Ads"
@@ -13,3 +13,11 @@ categories = []
 readme = "README.md"
 
 [dependencies]
+apple-web-service-endpoint = { version = "0.1", default-features = false, features = [] }
+
+serde = { version = "1.0", default-features = false, features = ["std", "derive"] }
+serde_json = { version = "1.0", default-features = false, features = ["std"] }
+chrono = { version = "0.4", default-features = false, features = ["alloc"] }
+strum = { version = "0.20", default-features = false, features = ["derive"] }
+url = { version = "2.2", default-features = false, features = [] }
+once_cell = { version = "1.5", default-features = false, features = ["std"] }

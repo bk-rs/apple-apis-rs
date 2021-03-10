@@ -3,3 +3,8 @@ Cargo.lock
 .vscode
 .idea
 .DS_Store
+
+/demo_certs/*.pem
+/demo_certs/*.key
+/demo_certs/*.p12
+!/demo_certs/.keep

@@ -1,0 +1,31 @@
+{
+    "returnRowTotals": true,
+    "granularity": "DAILY",
+    "timeZone": "UTC",
+    "returnGrandTotals": true,
+    "startTime": "2020-07-01",
+    "selector": {
+        "orderBy": [
+            {
+                "field": "localSpend",
+                "sortOrder": "ASCENDING"
+            }
+        ],
+        "conditions": [
+            {
+                "field": "deleted",
+                "operator": "IN",
+                "values": [
+                    "false",
+                    "true"
+                ]
+            }
+        ],
+        "pagination": {
+            "offset": 0,
+            "limit": 1000
+        }
+    },
+    "endTime": "2020-07-02",
+    "returnRecordsWithNoMetrics": true
+}

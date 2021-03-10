@@ -1,0 +1,52 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "orgId": 1,
+            "name": "Name",
+            "budgetAmount": {
+                "amount": "1",
+                "currency": "USD"
+            },
+            "dailyBudgetAmount": {
+                "amount": "1",
+                "currency": "USD"
+            },
+            "adamId": 899247664,
+            "paymentModel": "LOC",
+            "locInvoiceDetails": {
+                "clientName": "clientName",
+                "orderNumber": "1",
+                "buyerName": "buyerName",
+                "buyerEmail": "buyerEmail@example.com",
+                "billingContactEmail": "billingContactEmail@example.com"
+            },
+            "budgetOrders": [],
+            "startTime": "2020-01-01T16:00:00.000",
+            "endTime": null,
+            "status": "PAUSED",
+            "servingStatus": "NOT_RUNNING",
+            "servingStateReasons": [
+                "PAUSED_BY_USER"
+            ],
+            "modificationTime": "2020-10-30T00:00:00.000",
+            "deleted": false,
+            "sapinLawResponse": "NOT_ANSWERED",
+            "countriesOrRegions": [
+                "US"
+            ],
+            "countryOrRegionServingStateReasons": {},
+            "supplySources": [
+                "APPSTORE_SEARCH_RESULTS"
+            ],
+            "adChannelType": "SEARCH",
+            "displayStatus": "PAUSED"
+        }
+    ],
+    "pagination": {
+        "totalResults": 1,
+        "startIndex": 0,
+        "itemsPerPage": 1
+    },
+    "error": null
+}
