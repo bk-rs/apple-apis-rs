@@ -64,7 +64,7 @@ mod tests {
         #[derive(Deserialize)]
         pub struct Foo {
             pub code: ErrorResponseItemMessageCode,
-        };
+        }
 
         assert_eq!(
             serde_json::from_str::<Foo>(r#"{"code": "UNAUTHORIZED"}"#,)?.code,
