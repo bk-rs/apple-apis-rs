@@ -101,7 +101,7 @@ pub mod extended_spend_row_date_date_and_hour_format {
         D: Deserializer<'de>,
     {
         let s = String::deserialize(deserializer)?;
-        NaiveDateTime::parse_from_str(&format!("{}:00:00", s).as_str(), FORMAT_DE)
+        NaiveDateTime::parse_from_str(format!("{}:00:00", s).as_str(), FORMAT_DE)
             .map_err(serde::de::Error::custom)
     }
 }
