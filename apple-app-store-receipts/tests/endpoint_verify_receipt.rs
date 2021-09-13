@@ -63,7 +63,7 @@ fn parse_response_with_http_503() -> Result<(), Box<dyn error::Error>> {
         Ok(EndpointParseResponseOutput::Retryable(reason)) => {
             assert_eq!(reason, RetryReason::ServiceUnavailable)
         }
-        _ => assert!(false),
+        _ => panic!(),
     }
 
     Ok(())
@@ -86,7 +86,7 @@ fn parse_response_with_http_400() -> Result<(), Box<dyn error::Error>> {
             assert_eq!(err.kind(), io::ErrorKind::Other);
             assert_eq!(err.to_string(), "status [400 Bad Request] mismatch")
         }
-        _ => assert!(false),
+        _ => panic!(),
     }
 
     Ok(())
@@ -108,7 +108,7 @@ fn parse_response_with_21007() -> Result<(), Box<dyn error::Error>> {
         Ok(EndpointParseResponseOutput::Retryable(reason)) => {
             assert_eq!(reason, RetryReason::GotoSandbox)
         }
-        _ => assert!(false),
+        _ => panic!(),
     }
 
     Ok(())
@@ -131,7 +131,7 @@ fn parse_response_with_double_21007() {
         Ok(EndpointParseResponseOutput::Retryable(reason)) => {
             assert_eq!(reason, RetryReason::GotoSandbox)
         }
-        _ => assert!(false),
+        _ => panic!(),
     }
 
     // again
@@ -144,7 +144,7 @@ fn parse_response_with_double_21007() {
             assert_eq!(err.kind(), io::ErrorKind::Other);
             assert_eq!(err.to_string(), "status [400 Bad Request] mismatch")
         }
-        _ => assert!(false),
+        _ => panic!(),
     }
 }
 
@@ -164,7 +164,7 @@ fn parse_response_with_21002() -> Result<(), Box<dyn error::Error>> {
         Ok(EndpointParseResponseOutput::Retryable(reason)) => {
             assert_eq!(reason, RetryReason::TryAgainWithStatus(Status::Error21002))
         }
-        _ => assert!(false),
+        _ => panic!(),
     }
 
     Ok(())
@@ -186,7 +186,7 @@ fn parse_response_with_many_times_21002() -> Result<(), Box<dyn error::Error>> {
         Ok(EndpointParseResponseOutput::Retryable(reason)) => {
             assert_eq!(reason, RetryReason::TryAgainWithStatus(Status::Error21002))
         }
-        _ => assert!(false),
+        _ => panic!(),
     }
 
     let res = Response::builder()
@@ -197,7 +197,7 @@ fn parse_response_with_many_times_21002() -> Result<(), Box<dyn error::Error>> {
         Ok(EndpointParseResponseOutput::Retryable(reason)) => {
             assert_eq!(reason, RetryReason::TryAgainWithStatus(Status::Error21002))
         }
-        _ => assert!(false),
+        _ => panic!(),
     }
 
     let res = Response::builder()
@@ -208,7 +208,7 @@ fn parse_response_with_many_times_21002() -> Result<(), Box<dyn error::Error>> {
         Ok(EndpointParseResponseOutput::Retryable(reason)) => {
             assert_eq!(reason, RetryReason::TryAgainWithStatus(Status::Error21002))
         }
-        _ => assert!(false),
+        _ => panic!(),
     }
 
     let res = Response::builder()
@@ -219,7 +219,7 @@ fn parse_response_with_many_times_21002() -> Result<(), Box<dyn error::Error>> {
         Ok(EndpointParseResponseOutput::Done(ResponseBody::Error(body))) => {
             assert_eq!(body.status, Status::Error21002)
         }
-        _ => assert!(false),
+        _ => panic!(),
     }
 
     Ok(())
@@ -242,7 +242,7 @@ fn parse_response_with_21104_and_retryable() -> Result<(), Box<dyn error::Error>
             reason,
             RetryReason::TryAgainWithStatus(Status::InternalDataAccessError(21104))
         ),
-        _ => assert!(false),
+        _ => panic!(),
     }
 
     Ok(())
@@ -264,7 +264,7 @@ fn parse_response_with_21104_and_not_retryable() -> Result<(), Box<dyn error::Er
         Ok(EndpointParseResponseOutput::Done(ResponseBody::Error(body))) => {
             assert_eq!(body.status, Status::InternalDataAccessError(21104))
         }
-        _ => assert!(false),
+        _ => panic!(),
     }
 
     Ok(())

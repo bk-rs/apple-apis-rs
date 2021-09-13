@@ -31,7 +31,7 @@ mod tests {
         println!("{:?}", body);
 
         assert_eq!(body.data.len(), 1);
-        assert_eq!(body.pagination.is_none(), true);
+        assert!(body.pagination.is_none());
         let user_acl = body.data.first().unwrap();
         assert_eq!(user_acl.currency, Currency::USD);
         assert_eq!(user_acl.org_id, 1);

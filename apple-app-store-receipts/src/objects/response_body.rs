@@ -234,7 +234,7 @@ mod tests {
                 assert_eq!(body.is_retryable, None);
                 assert_eq!(body.exception, None)
             }
-            _ => assert!(false, ""),
+            _ => panic!(),
         }
 
         match serde_json::from_str(
@@ -246,7 +246,7 @@ mod tests {
                 assert_eq!(body.is_retryable, Some(false));
                 assert_eq!(body.exception, Some("com.apple.jingle.commercelogic.inapplocker.exception.MZInAppLockerAccessException".to_owned()));
             }
-            _ => assert!(false, ""),
+            _ => panic!(),
         }
 
         match serde_json::from_str(
@@ -258,7 +258,7 @@ mod tests {
                 assert_eq!(body.is_retryable, Some(true));
                 assert_eq!(body.exception, Some("com.apple.jingle.commercelogic.inapplocker.exception.MZInAppLockerAccessException".to_owned()));
             }
-            _ => assert!(false, ""),
+            _ => panic!(),
         }
 
         Ok(())
