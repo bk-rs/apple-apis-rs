@@ -24,6 +24,7 @@ serde_json = { version = "1.0", default-features = false, features = ["std"] }
 chrono = { version = "0.4", default-features = false, features = [] }
 serde-aux = { version = "2.1", default-features = false, features = ["chrono"] }
 base64 = { version = "0.13", default-features = false, features = ["std"], optional = true }
+serde-enum-str = { version = "0.2", default-features = false, features = [] }
 
 [dev-dependencies]
 apple-web-service-isahc-client = { path = "../apple-web-service-isahc-client", version = "0.1", default-features = false, features = [] }

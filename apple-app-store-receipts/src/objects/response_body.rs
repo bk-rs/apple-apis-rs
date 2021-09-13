@@ -6,6 +6,7 @@ use serde_aux::field_attributes::{
     deserialize_bool_from_anything, deserialize_datetime_utc_from_milliseconds,
     deserialize_number_from_string,
 };
+use serde_enum_str::Deserialize_enum_str;
 use serde_json::{Map, Value};
 
 use crate::types::status::Status;
@@ -63,7 +64,7 @@ pub enum Environment {
     Production,
 }
 
-#[derive(Deserialize, Debug, PartialEq, Eq)]
+#[derive(Deserialize_enum_str, Debug, PartialEq, Eq)]
 pub enum ReceiptType {
     Production,
     #[allow(clippy::upper_case_acronyms)]
@@ -71,6 +72,8 @@ pub enum ReceiptType {
     ProductionSandbox,
     #[allow(clippy::upper_case_acronyms)]
     ProductionVPPSandbox,
+    #[serde(other)]
+    Other(String),
 }
 
 #[derive(Deserialize, Debug)]
