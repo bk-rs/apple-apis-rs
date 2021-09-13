@@ -27,6 +27,6 @@ apple-search-ads = { path = "../../apple-search-ads", version = "0.1" }
 apple-web-service-isahc-client = { path = "../../apple-web-service-isahc-client", version = "0.1" }
 
 futures-lite = { version = "1.11" }
-env_logger = { version = "0.8" }
+env_logger = { version = "0.9" }
 chrono = { version = "0.4" }
 serde_json = { version = "1.0" }
