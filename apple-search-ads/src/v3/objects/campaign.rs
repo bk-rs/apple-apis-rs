@@ -1,5 +1,8 @@
 // https://developer.apple.com/documentation/apple_search_ads/campaign
 
+// TODO, wait serde_enum_str upgrade
+#![allow(non_camel_case_types, clippy::upper_case_acronyms)]
+
 use chrono::{DateTime, Utc};
 use serde::Deserialize;
 use serde_enum_str::Deserialize_enum_str;
