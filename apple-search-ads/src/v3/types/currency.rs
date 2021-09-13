@@ -1,8 +1,8 @@
 // https://developer.apple.com/documentation/apple_search_ads/useracl currency
 
-use serde::Deserialize;
+use serde_enum_str::Deserialize_enum_str;
 
-#[derive(strum::Display, Deserialize, PartialEq, Debug, Clone)]
+#[derive(Deserialize_enum_str, PartialEq, Debug, Clone)]
 pub enum Currency {
     #[allow(clippy::upper_case_acronyms)]
     AUD,

@@ -18,6 +18,6 @@ apple-web-service-endpoint = { path = "../apple-web-service-endpoint", version =
 serde = { version = "1.0", default-features = false, features = ["std", "derive"] }
 serde_json = { version = "1.0", default-features = false, features = ["std"] }
 chrono = { version = "0.4", default-features = false, features = ["alloc"] }
-strum = { version = "0.20", default-features = false, features = ["derive"] }
+serde-enum-str = { version = "0.2", default-features = false, features = [] }
 url = { version = "2.2", default-features = false, features = [] }
 once_cell = { version = "1.5", default-features = false, features = ["std"] }

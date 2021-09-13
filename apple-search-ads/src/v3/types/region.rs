@@ -1,27 +1,17 @@
 // https://developer.apple.com/documentation/apple_search_ads/campaign countriesOrRegions
 
-use std::{fmt, str::FromStr as _};
+use std::fmt;
 
-use serde::{Deserialize, Deserializer};
-use strum::EnumString;
+use serde_enum_str::Deserialize_enum_str;
 
-#[derive(EnumString, PartialEq, Eq, Hash, Debug, Clone)]
+#[derive(Deserialize_enum_str, PartialEq, Eq, Hash, Debug, Clone)]
 pub enum Region {
     #[allow(clippy::upper_case_acronyms)]
     US,
-    #[strum(disabled)]
+    #[serde(other)]
     Other(String),
 }
-impl<'de> Deserialize<'de> for Region {
-    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let str = String::deserialize(deserializer)?;
 
-        Ok(Self::from_str(str.as_ref()).unwrap_or_else(|_| Self::Other(str)))
-    }
-}
 impl fmt::Display for Region {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {

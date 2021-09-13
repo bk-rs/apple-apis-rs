@@ -1,10 +1,8 @@
 // https://developer.apple.com/documentation/apple_search_ads/campaign
 
-use std::str::FromStr as _;
-
 use chrono::{DateTime, Utc};
-use serde::{Deserialize, Deserializer};
-use strum::EnumString;
+use serde::Deserialize;
+use serde_enum_str::Deserialize_enum_str;
 
 use crate::v3::{
     objects::{
@@ -139,24 +137,14 @@ pub mod campaign_date_format {
 }
 
 //
-#[derive(EnumString, PartialEq, Debug, Clone)]
+#[derive(Deserialize_enum_str, PartialEq, Debug, Clone)]
 pub enum CampaignAdChannelType {
     #[allow(clippy::upper_case_acronyms)]
     SEARCH,
     #[allow(clippy::upper_case_acronyms)]
     DISPLAY,
-    #[strum(disabled)]
+    #[serde(other)]
     Other(String),
-}
-impl<'de> Deserialize<'de> for CampaignAdChannelType {
-    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let str = String::deserialize(deserializer)?;
-
-        Ok(Self::from_str(str.as_ref()).unwrap_or_else(|_| Self::Other(str)))
-    }
 }
 
 #[derive(Deserialize, PartialEq, Debug, Clone)]
@@ -171,7 +159,7 @@ pub enum CampaignDisplayStatus {
     DELETED,
 }
 
-#[derive(Deserialize, PartialEq, strum::Display, Debug, Clone)]
+#[derive(Deserialize_enum_str, PartialEq, Debug, Clone)]
 pub enum CampaignServingStateReason {
     #[allow(non_camel_case_types, clippy::upper_case_acronyms)]
     NO_PAYMENT_METHOD_ON_FILE,
@@ -229,7 +217,7 @@ pub enum CampaignServingStateReason {
     AD_GROUP_MISSING,
 }
 
-#[derive(Deserialize, PartialEq, strum::Display, Debug, Clone)]
+#[derive(Deserialize_enum_str, PartialEq, Debug, Clone)]
 pub enum CampaignServingStatus {
     #[allow(clippy::upper_case_acronyms)]
     RUNNING,
@@ -237,7 +225,7 @@ pub enum CampaignServingStatus {
     NOT_RUNNING,
 }
 
-#[derive(Deserialize, PartialEq, strum::Display, Debug, Clone)]
+#[derive(Deserialize_enum_str, PartialEq, Debug, Clone)]
 pub enum CampaignStatus {
     #[allow(clippy::upper_case_acronyms)]
     ENABLED,
@@ -245,7 +233,7 @@ pub enum CampaignStatus {
     PAUSED,
 }
 
-#[derive(EnumString, PartialEq, Debug, Clone)]
+#[derive(Deserialize_enum_str, PartialEq, Debug, Clone)]
 pub enum CampaignSupplySource {
     #[allow(non_camel_case_types, clippy::upper_case_acronyms)]
     APPSTORE_SEARCH_RESULTS,
@@ -253,16 +241,6 @@ pub enum CampaignSupplySource {
     NEWS,
     #[allow(clippy::upper_case_acronyms)]
     STOCKS,
-    #[strum(disabled)]
+    #[serde(other)]
     Other(String),
-}
-impl<'de> Deserialize<'de> for CampaignSupplySource {
-    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let str = String::deserialize(deserializer)?;
-
-        Ok(Self::from_str(str.as_ref()).unwrap_or_else(|_| Self::Other(str)))
-    }
 }

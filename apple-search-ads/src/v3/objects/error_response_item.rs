@@ -1,9 +1,7 @@
 // https://developer.apple.com/documentation/apple_search_ads/errorresponseitem
 
-use std::str::FromStr as _;
-
-use serde::{Deserialize, Deserializer};
-use strum::EnumString;
+use serde::Deserialize;
+use serde_enum_str::Deserialize_enum_str;
 
 #[derive(Deserialize, Debug, Clone)]
 pub struct ErrorResponseItem {
@@ -13,24 +11,14 @@ pub struct ErrorResponseItem {
     pub message_code: ErrorResponseItemMessageCode,
 }
 
-#[derive(EnumString, PartialEq, Debug, Clone)]
+#[derive(Deserialize_enum_str, PartialEq, Debug, Clone)]
 pub enum ErrorResponseItemMessageCode {
-    #[strum(serialize = "UNAUTHORIZED")]
+    #[serde(rename = "UNAUTHORIZED")]
     Unauthorized,
-    #[strum(serialize = "INVALID_DATE_FORMAT")]
+    #[serde(rename = "INVALID_DATE_FORMAT")]
     InvalidDateFormat,
-    #[strum(disabled)]
+    #[serde(other)]
     Other(String),
-}
-impl<'de> Deserialize<'de> for ErrorResponseItemMessageCode {
-    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let str = String::deserialize(deserializer)?;
-
-        Ok(Self::from_str(str.as_ref()).unwrap_or_else(|_| Self::Other(str)))
-    }
 }
 
 #[cfg(test)]

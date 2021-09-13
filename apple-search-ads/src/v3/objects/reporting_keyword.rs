@@ -1,6 +1,7 @@
 // https://developer.apple.com/documentation/apple_search_ads/reportingkeyword
 
 use serde::Deserialize;
+use serde_enum_str::Deserialize_enum_str;
 
 use crate::v3::types::region::Region;
 
@@ -25,7 +26,7 @@ pub struct ReportingKeyword {
     pub country_or_region: Region,
 }
 
-#[derive(Deserialize, PartialEq, strum::Display, Debug, Clone)]
+#[derive(Deserialize_enum_str, PartialEq, Debug, Clone)]
 pub enum ReportingKeywordMatchType {
     #[allow(clippy::upper_case_acronyms)]
     AUTO,
