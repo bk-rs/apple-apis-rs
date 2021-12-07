@@ -2,7 +2,7 @@
 name = "apple-itunes-search-api"
 version = "0.0.0"
 authors = ["vkill <vkill.net@gmail.com>"]
-edition = "2018"
+edition = "2021"
 description = "Apple - iTunes Search API"
 license = "Apache-2.0 OR MIT"
 repository = "https://github.com/bk-rs/apple-apis-rs"

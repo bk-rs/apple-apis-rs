@@ -2,7 +2,7 @@
 name = "appleapis-demo-isahc"
 version = "0.1.0"
 authors = ["vkill <vkill.net@gmail.com>"]
-edition = "2018"
+edition = "2021"
 
 [[bin]]
 name = "iap_verify_receipt"
