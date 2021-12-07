@@ -1,12 +1,13 @@
 // https://developer.apple.com/documentation/apple_search_ads/get_search_terms_level_reports
 
-use std::{io, marker::PhantomData};
+use std::marker::PhantomData;
 
 use http::{
     header::{ACCEPT, AUTHORIZATION, CONTENT_TYPE, USER_AGENT},
-    Method, StatusCode, Version,
+    Error as HttpError, Method, StatusCode, Version,
 };
 use serde::de::DeserializeOwned;
+use serde_json::Error as SerdeJsonError;
 
 use crate::v3::objects::{
     error_response_body::GeneralErrorResponse, reporting_request::ReportingRequest,
@@ -39,15 +40,18 @@ where
     M: DeserializeOwned,
     I: DeserializeOwned,
 {
+    type RenderRequestError = CustomizableGetSearchTermLevelReportsError;
+
     #[allow(clippy::type_complexity)]
     type ParseResponseOutput = (
         Option<Result<ReportingResponseBody<M, I>, GeneralErrorResponse>>,
         StatusCode,
     );
-    type RetryReason = ();
+    type ParseResponseError = CustomizableGetSearchTermLevelReportsError;
 
-    fn render_request(&self) -> io::Result<Request<Body>> {
-        let body = serde_json::to_vec(&self.reporting_request)?;
+    fn render_request(&self) -> Result<Request<Body>, Self::RenderRequestError> {
+        let body = serde_json::to_vec(&self.reporting_request)
+            .map_err(CustomizableGetSearchTermLevelReportsError::SerRequestBodyFailed)?;
 
         let request = Request::builder()
             .method(Method::POST)
@@ -64,28 +68,47 @@ where
             .header(ACCEPT, "application/json")
             .header(AUTHORIZATION, format!("orgId={}", self.org_id))
             .body(body)
-            .map_err(|err| io::Error::new(io::ErrorKind::Other, err))?;
+            .map_err(CustomizableGetSearchTermLevelReportsError::MakeRequestFailed)?;
 
         Ok(request)
     }
 
     fn parse_response(
-        &mut self,
+        &self,
         response: Response<Body>,
-    ) -> io::Result<EndpointParseResponseOutput<Self::ParseResponseOutput, Self::RetryReason>> {
+    ) -> Result<Self::ParseResponseOutput, Self::ParseResponseError> {
         let body = match response.status() {
             StatusCode::OK => Some(Ok(serde_json::from_slice::<ReportingResponseBody<M, I>>(
                 response.body(),
-            )?)),
+            )
+            .map_err(CustomizableGetSearchTermLevelReportsError::DeResponseBodyOkJsonFailed)?)),
             StatusCode::GONE => None,
             _ => Some(Err(serde_json::from_slice::<GeneralErrorResponse>(
                 response.body(),
+            )
+            .map_err(
+                CustomizableGetSearchTermLevelReportsError::DeResponseBodyErrJsonFailed,
             )?)),
         };
 
-        Ok(EndpointParseResponseOutput::Done((body, response.status())))
+        Ok((body, response.status()))
     }
 }
 
 pub type GetSearchTermLevelReports =
     CustomizableGetSearchTermLevelReports<SearchTermLevelRowMetaData, ()>;
+
+//
+//
+//
+#[derive(thiserror::Error, Debug)]
+pub enum CustomizableGetSearchTermLevelReportsError {
+    #[error("SerRequestBodyFailed {0}")]
+    SerRequestBodyFailed(SerdeJsonError),
+    #[error("MakeRequestFailed {0}")]
+    MakeRequestFailed(HttpError),
+    #[error("DeResponseBodyOkJsonFailed {0}")]
+    DeResponseBodyOkJsonFailed(SerdeJsonError),
+    #[error("DeResponseBodyErrJsonFailed {0}")]
+    DeResponseBodyErrJsonFailed(SerdeJsonError),
+}

@@ -25,6 +25,7 @@ apple-app-store-receipts = { path = "../../apple-app-store-receipts", version = 
 apple-search-ads = { path = "../../apple-search-ads", version = "0.1" }
 
 apple-web-service-isahc-client = { path = "../../apple-web-service-isahc-client", version = "0.1" }
+http-api-isahc-client = { version = "0.2" }
 
 futures-lite = { version = "1.11" }
 env_logger = { version = "0.9" }

@@ -27,15 +27,15 @@ use apple_search_ads::v3::{
         sorting::{Sorting, SortingSortOrder},
     },
 };
-use apple_web_service_isahc_client::{
+use chrono::NaiveDate;
+use futures_lite::future::block_on;
+use http_api_isahc_client::{
     isahc::{
         config::{ClientCertificate, Configurable, PrivateKey},
         HttpClient,
     },
     Client as _, IsahcClient,
 };
-use chrono::NaiveDate;
-use futures_lite::future::block_on;
 
 fn main() -> Result<(), Box<dyn error::Error>> {
     env_logger::init();
@@ -87,44 +87,44 @@ async fn run() -> Result<(), Box<dyn error::Error>> {
 
     match level.as_str() {
         "campaign" => {
-            let mut get_campaign_level_reports =
+            let get_campaign_level_reports =
                 GetCampaignLevelReports::new(org_id, reporting_request);
 
             let (response_body, response_status) = isahc_client
-                .respond_endpoint_until_done(&mut get_campaign_level_reports, None)
+                .respond_endpoint(&get_campaign_level_reports)
                 .await?;
 
             println!("{:?}", response_body);
             println!("{:?}", response_status);
         }
         "ad_group" => {
-            let mut get_ad_group_level_reports =
+            let get_ad_group_level_reports =
                 GetAdGroupLevelReports::new(org_id, campaign_id.unwrap(), reporting_request);
 
             let (response_body, response_status) = isahc_client
-                .respond_endpoint_until_done(&mut get_ad_group_level_reports, None)
+                .respond_endpoint(&get_ad_group_level_reports)
                 .await?;
 
             println!("{:?}", response_body);
             println!("{:?}", response_status);
         }
         "keyword" => {
-            let mut get_keyword_level_reports =
+            let get_keyword_level_reports =
                 GetKeywordLevelReports::new(org_id, campaign_id.unwrap(), reporting_request);
 
             let (response_body, response_status) = isahc_client
-                .respond_endpoint_until_done(&mut get_keyword_level_reports, None)
+                .respond_endpoint(&get_keyword_level_reports)
                 .await?;
 
             println!("{:?}", response_body);
             println!("{:?}", response_status);
         }
         "search_term" => {
-            let mut get_search_term_level_reports =
+            let get_search_term_level_reports =
                 GetSearchTermLevelReports::new(org_id, campaign_id.unwrap(), reporting_request);
 
             let (response_body, response_status) = isahc_client
-                .respond_endpoint_until_done(&mut get_search_term_level_reports, None)
+                .respond_endpoint(&get_search_term_level_reports)
                 .await?;
 
             println!("{:?}", response_body);

@@ -1,12 +1,11 @@
 // https://developer.apple.com/documentation/apple_search_ads/get_user_acl
 
-use std::io;
-
 use http::{
     header::{ACCEPT, AUTHORIZATION, CONTENT_TYPE, USER_AGENT},
-    Method, StatusCode, Version,
+    Error as HttpError, Method, StatusCode, Version,
 };
 use once_cell::sync::Lazy;
+use serde_json::Error as SerdeJsonError;
 use url::Url;
 
 use crate::v3::objects::{
@@ -37,13 +36,15 @@ impl GetAllCampaigns {
     }
 }
 impl Endpoint for GetAllCampaigns {
+    type RenderRequestError = GetAllCampaignsError;
+
     type ParseResponseOutput = (
         Option<Result<CampaignListResponse, GeneralErrorResponse>>,
         StatusCode,
     );
-    type RetryReason = ();
+    type ParseResponseError = GetAllCampaignsError;
 
-    fn render_request(&self) -> io::Result<Request<Body>> {
+    fn render_request(&self) -> Result<Request<Body>, Self::RenderRequestError> {
         let mut uri = URL.to_owned();
 
         if let Some(ref pagination) = self.pagination {
@@ -66,25 +67,40 @@ impl Endpoint for GetAllCampaigns {
             .header(ACCEPT, "application/json")
             .header(AUTHORIZATION, format!("orgId={}", self.org_id))
             .body(vec![])
-            .map_err(|err| io::Error::new(io::ErrorKind::Other, err))?;
+            .map_err(GetAllCampaignsError::MakeRequestFailed)?;
 
         Ok(request)
     }
 
     fn parse_response(
-        &mut self,
+        &self,
         response: Response<Body>,
-    ) -> io::Result<EndpointParseResponseOutput<Self::ParseResponseOutput, Self::RetryReason>> {
+    ) -> Result<Self::ParseResponseOutput, Self::ParseResponseError> {
         let body = match response.status() {
             StatusCode::OK => Some(Ok(serde_json::from_slice::<CampaignListResponse>(
                 response.body(),
-            )?)),
+            )
+            .map_err(GetAllCampaignsError::DeResponseBodyOkJsonFailed)?)),
             StatusCode::GONE => None,
             _ => Some(Err(serde_json::from_slice::<GeneralErrorResponse>(
                 response.body(),
-            )?)),
+            )
+            .map_err(GetAllCampaignsError::DeResponseBodyErrJsonFailed)?)),
         };
 
-        Ok(EndpointParseResponseOutput::Done((body, response.status())))
+        Ok((body, response.status()))
     }
+}
+
+//
+//
+//
+#[derive(thiserror::Error, Debug)]
+pub enum GetAllCampaignsError {
+    #[error("MakeRequestFailed {0}")]
+    MakeRequestFailed(HttpError),
+    #[error("DeResponseBodyOkJsonFailed {0}")]
+    DeResponseBodyOkJsonFailed(SerdeJsonError),
+    #[error("DeResponseBodyErrJsonFailed {0}")]
+    DeResponseBodyErrJsonFailed(SerdeJsonError),
 }
