@@ -24,8 +24,7 @@ path = "src/search_ads_get_user_acl.rs"
 apple-app-store-receipts = { path = "../../apple-app-store-receipts", version = "0.1" }
 apple-search-ads = { path = "../../apple-search-ads", version = "^0.2" }
 
-apple-web-service-isahc-client = { path = "../../apple-web-service-isahc-client", version = "0.1" }
-http-api-isahc-client = { version = "0.2" }
+http-api-isahc-client = { version = "0.2", features = ["with-sleep-via-futures-timer"] }
 
 futures-lite = { version = "1.11" }
 env_logger = { version = "0.9" }

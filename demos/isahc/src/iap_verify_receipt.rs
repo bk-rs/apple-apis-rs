@@ -5,8 +5,8 @@ cargo run -p appleapis-demo-isahc --bin iap_verify_receipt 'YOUR_APPLE_IAP_PASSW
 use std::{env, error};
 
 use apple_app_store_receipts::{ReceiptData, VerifyReceipt};
-use apple_web_service_isahc_client::{Client as _, IsahcClient};
 use futures_lite::future::block_on;
+use http_api_isahc_client::{IsahcClient, RetryableClient as _};
 
 fn main() -> Result<(), Box<dyn error::Error>> {
     env_logger::init();
@@ -25,7 +25,7 @@ async fn run() -> Result<(), Box<dyn error::Error>> {
     println!("iap_verify_receipt");
 
     //
-    let mut verify_receipt = VerifyReceipt::new(
+    let verify_receipt = VerifyReceipt::new(
         apple_iap_password,
         ReceiptData::Base64String(receipt_base64_string),
         None,
@@ -34,7 +34,7 @@ async fn run() -> Result<(), Box<dyn error::Error>> {
     let isahc_client = IsahcClient::new()?;
 
     let response_body = isahc_client
-        .respond_endpoint_until_done(&mut verify_receipt, None)
+        .respond_endpoint_until_done(&verify_receipt)
         .await?;
 
     println!("{:?}", response_body);

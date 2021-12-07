@@ -4,7 +4,7 @@ pub mod verify_receipt;
 //
 //
 pub(crate) mod endpoint_prelude {
-    pub(crate) use apple_web_service_endpoint::{
-        http, Body, Endpoint, EndpointParseResponseOutput, Request, Response,
+    pub(crate) use http_api_client_endpoint::{
+        http, Body, Request, Response, RetryableEndpoint, RetryableEndpointRetry,
     };
 }
