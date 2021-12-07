@@ -1,11 +1,11 @@
 /*
-cargo run -p appleapis-demo-isahc --bin search_ads_get_reports_with_granularity campaign MONTHLY demo_certs/search_ads.pem demo_certs/search_ads.key ORG_ID 2020-01-01 2020-04-01
+cargo run -p appleapis-demo-isahc --bin search_ads_get_reports_with_granularity -- campaign MONTHLY demo_certs/search_ads.pem demo_certs/search_ads.key ORG_ID 2020-01-01 2020-04-01
 
-cargo run -p appleapis-demo-isahc --bin search_ads_get_reports_with_granularity campaign WEEKLY demo_certs/search_ads.pem demo_certs/search_ads.key ORG_ID 2020-01-01 2020-02-01
+cargo run -p appleapis-demo-isahc --bin search_ads_get_reports_with_granularity -- campaign WEEKLY demo_certs/search_ads.pem demo_certs/search_ads.key ORG_ID 2020-01-01 2020-02-01
 
-cargo run -p appleapis-demo-isahc --bin search_ads_get_reports_with_granularity ad_group DAILY demo_certs/search_ads.pem demo_certs/search_ads.key ORG_ID 2020-01-01 2020-02-01 CAMPAIGN_ID
-cargo run -p appleapis-demo-isahc --bin search_ads_get_reports_with_granularity keyword HOURLY demo_certs/search_ads.pem demo_certs/search_ads.key ORG_ID 2020-01-31 2020-02-01 CAMPAIGN_ID
-cargo run -p appleapis-demo-isahc --bin search_ads_get_reports_with_granularity search_term DAILY demo_certs/search_ads.pem demo_certs/search_ads.key ORG_ID 2020-01-31 2020-02-01 CAMPAIGN_ID
+cargo run -p appleapis-demo-isahc --bin search_ads_get_reports_with_granularity -- ad_group DAILY demo_certs/search_ads.pem demo_certs/search_ads.key ORG_ID 2020-01-01 2020-02-01 CAMPAIGN_ID
+cargo run -p appleapis-demo-isahc --bin search_ads_get_reports_with_granularity -- keyword HOURLY demo_certs/search_ads.pem demo_certs/search_ads.key ORG_ID 2020-01-31 2020-02-01 CAMPAIGN_ID
+cargo run -p appleapis-demo-isahc --bin search_ads_get_reports_with_granularity -- search_term DAILY demo_certs/search_ads.pem demo_certs/search_ads.key ORG_ID 2020-01-31 2020-02-01 CAMPAIGN_ID
 */
 
 use std::{env, error};

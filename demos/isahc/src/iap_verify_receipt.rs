@@ -1,5 +1,5 @@
 /*
-cargo run -p appleapis-demo-isahc --bin iap_verify_receipt 'YOUR_APPLE_IAP_PASSWORD' 'RECEIPT_BASE64_STRING'
+cargo run -p appleapis-demo-isahc --bin iap_verify_receipt -- 'YOUR_APPLE_IAP_PASSWORD' 'RECEIPT_BASE64_STRING'
 */
 
 use std::{env, error};

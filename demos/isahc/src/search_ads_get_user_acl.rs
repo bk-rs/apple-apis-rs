@@ -1,5 +1,5 @@
 /*
-cargo run -p appleapis-demo-isahc --bin search_ads_get_user_acl demo_certs/search_ads.pem demo_certs/search_ads.key
+cargo run -p appleapis-demo-isahc --bin search_ads_get_user_acl -- demo_certs/search_ads.pem demo_certs/search_ads.key
 */
 
 use std::{env, error};

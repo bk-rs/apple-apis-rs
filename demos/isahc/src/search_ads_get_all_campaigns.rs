@@ -1,5 +1,5 @@
 /*
-cargo run -p appleapis-demo-isahc --bin search_ads_get_all_campaigns demo_certs/search_ads.pem demo_certs/search_ads.key ORG_ID
+cargo run -p appleapis-demo-isahc --bin search_ads_get_all_campaigns -- demo_certs/search_ads.pem demo_certs/search_ads.key ORG_ID
 */
 
 use std::{env, error};
