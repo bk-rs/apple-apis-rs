@@ -21,7 +21,7 @@ name = "search_ads_get_user_acl"
 path = "src/search_ads_get_user_acl.rs"
 
 [dependencies]
-apple-app-store-receipts = { path = "../../apple-app-store-receipts", version = "0.1" }
+apple-app-store-receipts = { path = "../../apple-app-store-receipts", version = "^0.2" }
 apple-search-ads = { path = "../../apple-search-ads", version = "^0.2" }
 
 http-api-isahc-client = { version = "0.2", features = ["with-sleep-via-futures-timer"] }
