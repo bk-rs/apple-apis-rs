@@ -7,3 +7,5 @@
 ```
 cargo test --all-features -- --nocapture
 ```
+
+Deprecated, Please use [http-api-isahc-client](https://docs.rs/http-api-isahc-client) crate.

@@ -11,3 +11,5 @@
 ```
 cargo test --all-features -- --nocapture
 ```
+
+Deprecated, Please use [http-api-client](https://docs.rs/http-api-client) crate.
