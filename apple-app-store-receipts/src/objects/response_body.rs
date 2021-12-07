@@ -13,7 +13,7 @@ use crate::types::status::Status;
 
 #[derive(Debug)]
 pub enum ResponseBody {
-    Success(ResponseBodyWithSuccess),
+    Success(Box<ResponseBodyWithSuccess>),
     Error(ResponseBodyWithError),
 }
 impl<'de> Deserialize<'de> for ResponseBody {
@@ -32,7 +32,7 @@ impl<'de> Deserialize<'de> for ResponseBody {
 
         match status {
             Status::Success => ResponseBodyWithSuccess::deserialize(rest)
-                .map(ResponseBody::Success)
+                .map(|x| ResponseBody::Success(x.into()))
                 .map_err(de::Error::custom),
             _ => ResponseBodyWithError::deserialize(rest)
                 .map(ResponseBody::Error)

@@ -138,6 +138,7 @@ fn parse_response_with_double_21007() {
         .status(StatusCode::OK)
         .body(br#"{"status":21007}"#.to_vec())
         .unwrap();
+    #[allow(clippy::match_single_binding)]
     match verify_receipt.parse_response(
         res,
         Some(&RetryableEndpointRetry::new(1, RetryReason::GotoSandbox)),
