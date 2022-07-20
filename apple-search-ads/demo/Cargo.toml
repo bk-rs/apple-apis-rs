@@ -1,12 +1,8 @@
 [package]
-name = "appleapis-demo-isahc"
+name = "apple-search-ads-demo"
 version = "0.1.0"
 authors = ["vkill <vkill.net@gmail.com>"]
 edition = "2021"
-
-[[bin]]
-name = "iap_verify_receipt"
-path = "src/iap_verify_receipt.rs"
 
 [[bin]]
 name = "search_ads_get_all_campaigns"
@@ -21,12 +17,10 @@ name = "search_ads_get_user_acl"
 path = "src/search_ads_get_user_acl.rs"
 
 [dependencies]
-apple-app-store-receipts = { path = "../../apple-app-store-receipts", version = "^0.2" }
-apple-search-ads = { path = "../../apple-search-ads", version = "^0.2" }
+apple-search-ads = { path = ".." }
 
 http-api-isahc-client = { version = "0.2", features = ["with-sleep-via-futures-timer"] }
 
 futures-lite = { version = "1.11" }
 env_logger = { version = "0.9" }
 chrono = { version = "0.4" }
-serde_json = { version = "1.0" }

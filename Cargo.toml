@@ -2,6 +2,7 @@
 members = [
     "apple-app-store-connect-api",
     "apple-app-store-receipts",
+    "apple-app-store-receipts/demo",
     "apple-app-store-server-notifications",
     "apple-business-chat-api",
     "apple-classkit-catalog-api",
@@ -13,6 +14,6 @@ members = [
     "apple-music-api",
     "apple-news",
     "apple-search-ads",
+    "apple-search-ads/demo",
     "apple-wallet-passes",
-    "demos/isahc",
 ]
