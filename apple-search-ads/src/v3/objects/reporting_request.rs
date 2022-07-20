@@ -128,7 +128,7 @@ pub mod reporting_request_date_format {
     }
 }
 
-#[derive(Serialize, PartialEq, Debug, Clone)]
+#[derive(Serialize, PartialEq, Eq, Debug, Clone)]
 pub enum ReportingRequestGroupBy {
     #[serde(rename = "deviceClass")]
     DeviceClass,
@@ -146,7 +146,7 @@ pub enum ReportingRequestGroupBy {
     CountryOrRegion,
 }
 
-#[derive(Serialize, PartialEq, Debug, Clone)]
+#[derive(Serialize, PartialEq, Eq, Debug, Clone)]
 pub enum ReportingRequestTimeZone {
     #[allow(clippy::upper_case_acronyms)]
     UTC,
@@ -154,7 +154,7 @@ pub enum ReportingRequestTimeZone {
     ORTZ,
 }
 
-#[derive(Serialize, PartialEq, Debug, Clone)]
+#[derive(Serialize, PartialEq, Eq, Debug, Clone)]
 pub enum ReportingRequestGranularity {
     #[allow(clippy::upper_case_acronyms)]
     MONTHLY,

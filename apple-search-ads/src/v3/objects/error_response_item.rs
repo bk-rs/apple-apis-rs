@@ -11,7 +11,7 @@ pub struct ErrorResponseItem {
     pub message_code: ErrorResponseItemMessageCode,
 }
 
-#[derive(Deserialize_enum_str, PartialEq, Debug, Clone)]
+#[derive(Deserialize_enum_str, PartialEq, Eq, Debug, Clone)]
 pub enum ErrorResponseItemMessageCode {
     #[serde(rename = "UNAUTHORIZED")]
     Unauthorized,

@@ -140,7 +140,7 @@ pub mod campaign_date_format {
 }
 
 //
-#[derive(Deserialize_enum_str, PartialEq, Debug, Clone)]
+#[derive(Deserialize_enum_str, PartialEq, Eq, Debug, Clone)]
 pub enum CampaignAdChannelType {
     #[allow(clippy::upper_case_acronyms)]
     SEARCH,
@@ -150,7 +150,7 @@ pub enum CampaignAdChannelType {
     Other(String),
 }
 
-#[derive(Deserialize, PartialEq, Debug, Clone)]
+#[derive(Deserialize, PartialEq, Eq, Debug, Clone)]
 pub enum CampaignDisplayStatus {
     #[allow(clippy::upper_case_acronyms)]
     RUNNING,
@@ -162,7 +162,7 @@ pub enum CampaignDisplayStatus {
     DELETED,
 }
 
-#[derive(Deserialize_enum_str, PartialEq, Debug, Clone)]
+#[derive(Deserialize_enum_str, PartialEq, Eq, Debug, Clone)]
 pub enum CampaignServingStateReason {
     #[allow(non_camel_case_types, clippy::upper_case_acronyms)]
     NO_PAYMENT_METHOD_ON_FILE,
@@ -220,7 +220,7 @@ pub enum CampaignServingStateReason {
     AD_GROUP_MISSING,
 }
 
-#[derive(Deserialize_enum_str, PartialEq, Debug, Clone)]
+#[derive(Deserialize_enum_str, PartialEq, Eq, Debug, Clone)]
 pub enum CampaignServingStatus {
     #[allow(clippy::upper_case_acronyms)]
     RUNNING,
@@ -228,7 +228,7 @@ pub enum CampaignServingStatus {
     NOT_RUNNING,
 }
 
-#[derive(Deserialize_enum_str, PartialEq, Debug, Clone)]
+#[derive(Deserialize_enum_str, PartialEq, Eq, Debug, Clone)]
 pub enum CampaignStatus {
     #[allow(clippy::upper_case_acronyms)]
     ENABLED,
@@ -236,7 +236,7 @@ pub enum CampaignStatus {
     PAUSED,
 }
 
-#[derive(Deserialize_enum_str, PartialEq, Debug, Clone)]
+#[derive(Deserialize_enum_str, PartialEq, Eq, Debug, Clone)]
 pub enum CampaignSupplySource {
     #[allow(non_camel_case_types, clippy::upper_case_acronyms)]
     APPSTORE_SEARCH_RESULTS,

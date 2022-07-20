@@ -2,7 +2,7 @@
 
 use serde::Deserialize;
 
-#[derive(Deserialize, PartialEq, Debug, Clone)]
+#[derive(Deserialize, PartialEq, Eq, Debug, Clone)]
 #[allow(clippy::upper_case_acronyms)]
 pub struct LOCInvoiceDetails {
     #[serde(rename = "billingContactEmail")]

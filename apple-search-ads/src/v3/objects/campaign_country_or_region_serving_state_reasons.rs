@@ -9,7 +9,7 @@ use crate::v3::types::region::Region;
 pub type CampaignCountryOrRegionServingStateReasons =
     HashMap<Region, Vec<CampaignCountryOrRegionServingStateReason>>;
 
-#[derive(Deserialize, PartialEq, Debug, Clone)]
+#[derive(Deserialize, PartialEq, Eq, Debug, Clone)]
 pub enum CampaignCountryOrRegionServingStateReason {
     #[allow(non_camel_case_types, clippy::upper_case_acronyms)]
     APP_NOT_ELIGIBLE,

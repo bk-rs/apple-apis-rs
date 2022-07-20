@@ -41,7 +41,7 @@ pub struct ExtendedSpendRow {
     pub ttr: Option<f64>,
 }
 
-#[derive(Deserialize, Serialize, PartialEq, Debug, Clone)]
+#[derive(Deserialize, Serialize, PartialEq, Eq, Debug, Clone)]
 #[serde(untagged)]
 pub enum ExtendedSpendRowDate {
     #[serde(with = "extended_spend_row_date_date_format")]

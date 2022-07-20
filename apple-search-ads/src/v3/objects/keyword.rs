@@ -2,7 +2,7 @@
 
 use serde_enum_str::Deserialize_enum_str;
 
-#[derive(Deserialize_enum_str, PartialEq, Debug, Clone)]
+#[derive(Deserialize_enum_str, PartialEq, Eq, Debug, Clone)]
 pub enum KeywordMatchType {
     #[allow(clippy::upper_case_acronyms)]
     EXACT,

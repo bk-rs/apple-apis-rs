@@ -26,7 +26,7 @@ pub struct ReportingKeyword {
     pub country_or_region: Region,
 }
 
-#[derive(Deserialize_enum_str, PartialEq, Debug, Clone)]
+#[derive(Deserialize_enum_str, PartialEq, Eq, Debug, Clone)]
 pub enum ReportingKeywordMatchType {
     #[allow(clippy::upper_case_acronyms)]
     AUTO,

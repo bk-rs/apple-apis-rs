@@ -32,7 +32,7 @@ pub struct ReportingSearchTerm {
     pub country_or_region: Region,
 }
 
-#[derive(Deserialize_enum_str, PartialEq, Debug, Clone)]
+#[derive(Deserialize_enum_str, PartialEq, Eq, Debug, Clone)]
 pub enum SearchTermSource {
     #[allow(clippy::upper_case_acronyms)]
     AUTO,
@@ -40,7 +40,7 @@ pub enum SearchTermSource {
     TARGETED,
 }
 
-#[derive(Deserialize_enum_str, PartialEq, Debug, Clone)]
+#[derive(Deserialize_enum_str, PartialEq, Eq, Debug, Clone)]
 pub enum ReportingSearchTermMatchType {
     #[allow(clippy::upper_case_acronyms)]
     AUTO,

@@ -24,7 +24,7 @@ pub struct UserAcl {
     pub time_zone: String,
 }
 
-#[derive(Serialize, Deserialize, PartialEq, Debug, Clone)]
+#[derive(Serialize, Deserialize, PartialEq, Eq, Debug, Clone)]
 pub enum UserAclRoleName {
     #[serde(rename = "Account Read Only")]
     AccountReadOnly,
