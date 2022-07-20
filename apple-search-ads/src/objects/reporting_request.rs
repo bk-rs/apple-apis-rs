@@ -1,11 +1,12 @@
 // https://developer.apple.com/documentation/apple_search_ads/reportingrequest
 
 use chrono::NaiveDate;
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 
-use crate::v3::objects::selector::Selector;
+use crate::objects::selector::Selector;
+use crate::serde_aux_ext::deserialize_option_bool_from_anything;
 
-#[derive(Serialize, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct ReportingRequest {
     #[serde(with = "reporting_request_date_format")]
     #[serde(rename = "startTime")]
@@ -22,16 +23,28 @@ pub struct ReportingRequest {
     #[serde(rename = "groupBy")]
     pub group_by: Option<Vec<ReportingRequestGroupBy>>,
 
-    #[serde(skip_serializing_if = "Option::is_none")]
-    #[serde(rename = "returnGrandTotals")]
+    #[serde(
+        default,
+        deserialize_with = "deserialize_option_bool_from_anything",
+        skip_serializing_if = "Option::is_none",
+        rename = "returnGrandTotals"
+    )]
     pub return_grand_totals: Option<bool>,
 
-    #[serde(skip_serializing_if = "Option::is_none")]
-    #[serde(rename = "returnRecordsWithNoMetrics")]
+    #[serde(
+        default,
+        deserialize_with = "deserialize_option_bool_from_anything",
+        skip_serializing_if = "Option::is_none",
+        rename = "returnRecordsWithNoMetrics"
+    )]
     pub return_records_with_no_metrics: Option<bool>,
 
-    #[serde(skip_serializing_if = "Option::is_none")]
-    #[serde(rename = "returnRowTotals")]
+    #[serde(
+        default,
+        deserialize_with = "deserialize_option_bool_from_anything",
+        skip_serializing_if = "Option::is_none",
+        rename = "returnRowTotals"
+    )]
     pub return_row_totals: Option<bool>,
 
     pub selector: Selector,
@@ -40,6 +53,7 @@ pub struct ReportingRequest {
     #[serde(rename = "timeZone")]
     pub time_zone: Option<ReportingRequestTimeZone>,
 }
+
 impl ReportingRequest {
     pub fn new(start_time: NaiveDate, end_time: NaiveDate, selector: Selector) -> Self {
         Self {
@@ -128,7 +142,7 @@ pub mod reporting_request_date_format {
     }
 }
 
-#[derive(Serialize, PartialEq, Eq, Debug, Clone)]
+#[derive(Deserialize, Serialize, PartialEq, Eq, Debug, Clone)]
 pub enum ReportingRequestGroupBy {
     #[serde(rename = "deviceClass")]
     DeviceClass,
@@ -146,7 +160,7 @@ pub enum ReportingRequestGroupBy {
     CountryOrRegion,
 }
 
-#[derive(Serialize, PartialEq, Eq, Debug, Clone)]
+#[derive(Deserialize, Serialize, PartialEq, Eq, Debug, Clone)]
 pub enum ReportingRequestTimeZone {
     #[allow(clippy::upper_case_acronyms)]
     UTC,
@@ -154,7 +168,7 @@ pub enum ReportingRequestTimeZone {
     ORTZ,
 }
 
-#[derive(Serialize, PartialEq, Eq, Debug, Clone)]
+#[derive(Deserialize, Serialize, PartialEq, Eq, Debug, Clone)]
 pub enum ReportingRequestGranularity {
     #[allow(clippy::upper_case_acronyms)]
     MONTHLY,
@@ -170,11 +184,11 @@ pub enum ReportingRequestGranularity {
 mod tests {
     use super::*;
 
-    use std::{error, fs};
+    use std::error;
 
     use serde_json::Value;
 
-    use crate::v3::objects::{
+    use crate::objects::{
         condition::{Condition, ConditionOperator::*},
         pagination::Pagination,
         reporting_request::{
@@ -184,7 +198,82 @@ mod tests {
     };
 
     #[test]
-    fn test_se_get_campaign_level_reports() -> Result<(), Box<dyn error::Error>> {
+    fn test_v4_ser_get_campaign_level_reports() -> Result<(), Box<dyn error::Error>> {
+        let mut pagination = Pagination::new();
+        pagination.set_limit(1000).set_offset(0);
+
+        let mut selector = Selector::new(vec![Sorting::new("countryOrRegion", ASCENDING)]);
+        selector
+            .set_conditions(vec![
+                Condition::new("countriesOrRegions", CONTAINS_ANY, vec!["US", "GB"]),
+                Condition::new("countryOrRegion", IN, vec!["US"]),
+            ])
+            .set_pagination(pagination);
+
+        let mut reporting_request = ReportingRequest::new(
+            "2021-04-08".parse().unwrap(),
+            "2021-04-09".parse().unwrap(),
+            selector,
+        );
+        reporting_request
+            .set_group_by(vec![CountryOrRegion])
+            .set_time_zone(UTC)
+            .set_return_records_with_no_metrics(true)
+            .set_return_row_totals(true)
+            .set_return_grand_totals(true);
+
+        let value1: Value = serde_json::to_value(reporting_request)?;
+
+        let json_content =
+            include_str!("../../tests/v4/request_body_json_files/get_campaign_level_reports_payload_example_1.json");
+        let value2: Value = serde_json::from_str(json_content)?;
+
+        assert_eq!(value1, value2);
+
+        Ok(())
+    }
+
+    #[test]
+    fn test_v4_ser_get_campaign_level_reports_with_granularity() -> Result<(), Box<dyn error::Error>>
+    {
+        let mut pagination = Pagination::new();
+        pagination.set_limit(1000).set_offset(0);
+
+        let mut selector = Selector::new(vec![Sorting::new("countryOrRegion", ASCENDING)]);
+        selector
+            .set_conditions(vec![
+                Condition::new("countriesOrRegions", CONTAINS_ANY, vec!["US", "GB"]),
+                Condition::new("countryOrRegion", IN, vec!["US"]),
+            ])
+            .set_pagination(pagination);
+
+        let mut reporting_request = ReportingRequest::new(
+            "2021-04-08".parse().unwrap(),
+            "2021-04-18".parse().unwrap(),
+            selector,
+        );
+        reporting_request
+            .set_group_by(vec![CountryOrRegion])
+            .set_time_zone(UTC)
+            .set_return_records_with_no_metrics(true)
+            .set_return_row_totals(false)
+            .set_granularity(DAILY)
+            .set_return_grand_totals(false);
+
+        let value1: Value = serde_json::to_value(reporting_request)?;
+
+        let json_content = include_str!(
+            "../../tests/v4/request_body_json_files/get_campaign_level_reports_payload_example_3.json",
+        );
+        let value2: Value = serde_json::from_str(json_content)?;
+
+        assert_eq!(value1, value2);
+
+        Ok(())
+    }
+
+    #[test]
+    fn test_v3_ser_get_campaign_level_reports() -> Result<(), Box<dyn error::Error>> {
         let mut pagination = Pagination::new();
         pagination.set_limit(1000).set_offset(0);
 
@@ -211,9 +300,8 @@ mod tests {
         let value1: Value = serde_json::to_value(reporting_request)?;
 
         let json_content =
-            fs::read_to_string("tests/v3/request_body_json_files/get_campaign_level_reports.json")
-                .unwrap();
-        let value2: Value = serde_json::from_str(&json_content)?;
+            include_str!("../../tests/v3/request_body_json_files/get_campaign_level_reports.json");
+        let value2: Value = serde_json::from_str(json_content)?;
 
         assert_eq!(value1, value2);
 
@@ -221,7 +309,8 @@ mod tests {
     }
 
     #[test]
-    fn test_se_get_campaign_level_reports_with_granularity() -> Result<(), Box<dyn error::Error>> {
+    fn test_v3_ser_get_campaign_level_reports_with_granularity() -> Result<(), Box<dyn error::Error>>
+    {
         let mut pagination = Pagination::new();
         pagination.set_limit(1000).set_offset(0);
 
@@ -248,14 +337,72 @@ mod tests {
 
         let value1: Value = serde_json::to_value(reporting_request)?;
 
-        let json_content = fs::read_to_string(
-            "tests/v3/request_body_json_files/get_campaign_level_reports_with_granularity.json",
-        )
-        .unwrap();
-        let value2: Value = serde_json::from_str(&json_content)?;
+        let json_content = include_str!(
+            "../../tests/v3/request_body_json_files/get_campaign_level_reports_with_granularity.json",
+        );
+        let value2: Value = serde_json::from_str(json_content)?;
 
         assert_eq!(value1, value2);
 
         Ok(())
+    }
+
+    #[test]
+    fn test_v4_de() {
+        match serde_json::from_str::<ReportingRequest>(include_str!("../../tests/v4/request_body_json_files/get_campaign_level_reports_payload_example_1.json")) {
+            Ok(_) => {},
+            Err(err) => panic!("{}", err)
+        }
+
+        match serde_json::from_str::<ReportingRequest>(include_str!("../../tests/v4/request_body_json_files/get_campaign_level_reports_payload_example_2.json")) {
+            Ok(_) => {},
+            Err(err) => panic!("{}", err)
+        }
+
+        match serde_json::from_str::<ReportingRequest>(include_str!("../../tests/v4/request_body_json_files/get_campaign_level_reports_payload_example_3.json")) {
+            Ok(_) => {},
+            Err(err) => panic!("{}", err)
+        }
+    }
+
+    #[test]
+    fn test_v3_de() {
+        match serde_json::from_str::<ReportingRequest>(include_str!("../../tests/v3/request_body_json_files/get_ad_group_level_reports_using_group_by_field_with_geo_values.json")) {
+            Ok(_) => {},
+            Err(err) => panic!("{}", err)
+        }
+
+        match serde_json::from_str::<ReportingRequest>(include_str!(
+            "../../tests/v3/request_body_json_files/get_ad_group_level_reports.json"
+        )) {
+            Ok(_) => {}
+            Err(err) => panic!("{}", err),
+        }
+
+        match serde_json::from_str::<ReportingRequest>(include_str!("../../tests/v3/request_body_json_files/get_campaign_level_reports_with_granularity.json")) {
+            Ok(_) => {},
+            Err(err) => panic!("{}", err)
+        }
+
+        match serde_json::from_str::<ReportingRequest>(include_str!(
+            "../../tests/v3/request_body_json_files/get_campaign_level_reports.json"
+        )) {
+            Ok(_) => {}
+            Err(err) => panic!("{}", err),
+        }
+
+        match serde_json::from_str::<ReportingRequest>(include_str!(
+            "../../tests/v3/request_body_json_files/get_keyword_level_reports.json"
+        )) {
+            Ok(_) => {}
+            Err(err) => panic!("{}", err),
+        }
+
+        match serde_json::from_str::<ReportingRequest>(include_str!(
+            "../../tests/v3/request_body_json_files/get_search_term_level_reports.json"
+        )) {
+            Ok(_) => {}
+            Err(err) => panic!("{}", err),
+        }
     }
 }

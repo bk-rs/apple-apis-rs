@@ -4,9 +4,8 @@ cargo run -p apple-search-ads-demo --bin search_ads_get_all_campaigns -- demo_ce
 
 use std::{env, error};
 
-use apple_search_ads::v3::{
-    endpoints::get_all_campaigns::GetAllCampaigns, objects::pagination::Pagination,
-};
+use apple_search_ads::objects::pagination::Pagination;
+use apple_search_ads::v3::endpoints::get_all_campaigns::GetAllCampaigns;
 use futures_lite::future::block_on;
 use http_api_isahc_client::{
     isahc::{

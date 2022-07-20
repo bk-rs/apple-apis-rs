@@ -9,9 +9,10 @@ use http::{
 use serde::de::DeserializeOwned;
 use serde_json::Error as SerdeJsonError;
 
+use crate::objects::reporting_request::ReportingRequest;
 use crate::v3::objects::{
-    error_response_body::GeneralErrorResponse, reporting_request::ReportingRequest,
-    reporting_response_body::ReportingResponseBody, row::SearchTermLevelRowMetaData,
+    error_response_body::GeneralErrorResponse, reporting_response_body::ReportingResponseBody,
+    row::SearchTermLevelRowMetaData,
 };
 
 use super::endpoint_prelude::*;

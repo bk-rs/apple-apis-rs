@@ -1,0 +1,30 @@
+{
+    "startTime": "2021-04-08",
+    "endTime": "2021-04-09",
+    "selector": {
+        "orderBy": [
+            {
+                "field": "billingEvent",
+                "sortOrder": "DESCENDING"
+            }
+        ],
+        "conditions": [
+            {
+                "field": "billingEvent",
+                "operator": "IN",
+                "values": [
+                    "IMPRESSIONS",
+                    "TAPS"
+                ]
+            }
+        ],
+        "pagination": {
+            "offset": 0,
+            "limit": 34
+        }
+    },
+    "timeZone": "UTC",
+    "returnRecordsWithNoMetrics": false,
+    "returnRowTotals": true,
+    "returnGrandTotals": true
+}

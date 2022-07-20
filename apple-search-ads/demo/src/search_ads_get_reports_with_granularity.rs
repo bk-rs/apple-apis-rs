@@ -10,22 +10,20 @@ cargo run -p apple-search-ads-demo --bin search_ads_get_reports_with_granularity
 
 use std::{env, error};
 
-use apple_search_ads::v3::{
-    endpoints::{
-        get_ad_group_level_reports::GetAdGroupLevelReports,
-        get_campaign_level_reports::GetCampaignLevelReports,
-        get_keyword_level_reports::GetKeywordLevelReports,
-        get_search_term_level_reports::GetSearchTermLevelReports,
+use apple_search_ads::objects::{
+    pagination::Pagination,
+    reporting_request::{
+        ReportingRequest, ReportingRequestGranularity, ReportingRequestGroupBy,
+        ReportingRequestTimeZone,
     },
-    objects::{
-        pagination::Pagination,
-        reporting_request::{
-            ReportingRequest, ReportingRequestGranularity, ReportingRequestGroupBy,
-            ReportingRequestTimeZone,
-        },
-        selector::Selector,
-        sorting::{Sorting, SortingSortOrder},
-    },
+    selector::Selector,
+    sorting::{Sorting, SortingSortOrder},
+};
+use apple_search_ads::v3::endpoints::{
+    get_ad_group_level_reports::GetAdGroupLevelReports,
+    get_campaign_level_reports::GetCampaignLevelReports,
+    get_keyword_level_reports::GetKeywordLevelReports,
+    get_search_term_level_reports::GetSearchTermLevelReports,
 };
 use chrono::NaiveDate;
 use futures_lite::future::block_on;

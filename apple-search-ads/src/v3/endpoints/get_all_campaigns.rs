@@ -8,9 +8,9 @@ use once_cell::sync::Lazy;
 use serde_json::Error as SerdeJsonError;
 use url::Url;
 
+use crate::objects::pagination::Pagination;
 use crate::v3::objects::{
     campaign_list_response::CampaignListResponse, error_response_body::GeneralErrorResponse,
-    pagination::Pagination,
 };
 
 use super::endpoint_prelude::*;

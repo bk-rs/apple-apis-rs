@@ -1,16 +1,16 @@
 // https://developer.apple.com/documentation/apple_search_ads/selector
 
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 
-use crate::v3::objects::{condition::Condition, pagination::Pagination, sorting::Sorting};
+use crate::objects::{condition::Condition, pagination::Pagination, sorting::Sorting};
 
-#[derive(Serialize, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct Selector {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub conditions: Option<Vec<Condition>>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub fields: Option<Vec<String>>,
+    pub fields: Option<Vec<Box<str>>>,
 
     #[serde(rename = "orderBy")]
     pub order_by: Vec<Sorting>,
@@ -31,7 +31,7 @@ impl Selector {
         self.conditions = val.into();
         self
     }
-    pub fn set_fields(&mut self, val: impl Into<Option<Vec<String>>>) -> &mut Self {
+    pub fn set_fields(&mut self, val: impl Into<Option<Vec<Box<str>>>>) -> &mut Self {
         self.fields = val.into();
         self
     }

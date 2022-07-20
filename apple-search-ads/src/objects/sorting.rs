@@ -4,15 +4,15 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Sorting {
-    pub field: String,
+    pub field: Box<str>,
 
     #[serde(rename = "sortOrder")]
     pub sort_order: SortingSortOrder,
 }
 impl Sorting {
-    pub fn new(field: impl Into<String>, sort_order: SortingSortOrder) -> Self {
+    pub fn new(field: impl AsRef<str>, sort_order: SortingSortOrder) -> Self {
         Self {
-            field: field.into(),
+            field: field.as_ref().into(),
             sort_order,
         }
     }

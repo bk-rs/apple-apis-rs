@@ -1,6 +1,6 @@
 // https://developer.apple.com/documentation/apple_search_ads/pagination
 
-use std::cmp::min;
+use core::cmp::min;
 
 use serde::{Deserialize, Serialize};
 

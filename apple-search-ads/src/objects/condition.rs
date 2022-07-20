@@ -4,22 +4,25 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Condition {
-    pub field: String,
+    pub field: Box<str>,
 
     pub operator: ConditionOperator,
 
-    pub values: Vec<String>,
+    pub values: Vec<Box<str>>,
 }
 impl Condition {
     pub fn new(
-        field: impl Into<String>,
+        field: impl AsRef<str>,
         operator: ConditionOperator,
-        values: Vec<impl Into<String>>,
+        values: Vec<impl AsRef<str>>,
     ) -> Self {
         Self {
-            field: field.into(),
+            field: field.as_ref().into(),
             operator,
-            values: values.into_iter().map(Into::into).collect::<Vec<_>>(),
+            values: values
+                .into_iter()
+                .map(|x| x.as_ref().into())
+                .collect::<Vec<_>>(),
         }
     }
 }
