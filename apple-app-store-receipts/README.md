@@ -5,17 +5,9 @@
 
 ## Examples
 
-### async-std
-
-* [verify receipt](../demos/async-std/src/iap_verify_receipt.rs)
+* [verify receipt](demo/src/iap_verify_receipt.rs)
 
 ## Dev
-
-```
-cargo build-all-features
-
-cargo test-all-features -- --nocapture
-```
 
 ```
 echo -n 'YOUR_APPLE_IAP_PASSWORD' > tests/verify_receipt_files/password

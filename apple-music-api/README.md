@@ -2,9 +2,3 @@
 
 * [Apple Doc](https://developer.apple.com/documentation/applemusicapi)
 * [Cargo package](https://crates.io/crates/apple-music-api)
-
-## Dev
-
-```
-cargo test --all-features -- --nocapture
-```
