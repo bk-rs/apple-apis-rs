@@ -9,6 +9,10 @@ name = "search_ads_get_all_campaigns"
 path = "src/search_ads_get_all_campaigns.rs"
 
 [[bin]]
+name = "search_ads_get_me_details"
+path = "src/search_ads_get_me_details.rs"
+
+[[bin]]
 name = "search_ads_get_reports_with_granularity"
 path = "src/search_ads_get_reports_with_granularity.rs"
 

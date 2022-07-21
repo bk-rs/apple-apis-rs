@@ -1,11 +1,12 @@
 // https://developer.apple.com/documentation/apple_search_ads/reportingrequest
 
-use chrono::NaiveDate;
+use chrono::{NaiveDate, Utc};
 use serde::{Deserialize, Serialize};
 
 use crate::objects::selector::Selector;
 use crate::serde_aux_ext::deserialize_option_bool_from_anything;
 
+//
 #[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct ReportingRequest {
     #[serde(with = "reporting_request_date_format")]
@@ -52,6 +53,17 @@ pub struct ReportingRequest {
     #[serde(skip_serializing_if = "Option::is_none")]
     #[serde(rename = "timeZone")]
     pub time_zone: Option<ReportingRequestTimeZone>,
+}
+
+impl Default for ReportingRequest {
+    fn default() -> Self {
+        let now = Utc::today();
+        Self::new(
+            (now - chrono::Duration::days(3)).naive_utc(),
+            now.naive_utc(),
+            Selector::default(),
+        )
+    }
 }
 
 impl ReportingRequest {
@@ -142,7 +154,7 @@ pub mod reporting_request_date_format {
     }
 }
 
-#[derive(Deserialize, Serialize, PartialEq, Eq, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone, PartialEq, Eq)]
 pub enum ReportingRequestGroupBy {
     #[serde(rename = "deviceClass")]
     DeviceClass,
@@ -160,7 +172,7 @@ pub enum ReportingRequestGroupBy {
     CountryOrRegion,
 }
 
-#[derive(Deserialize, Serialize, PartialEq, Eq, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone, PartialEq, Eq)]
 pub enum ReportingRequestTimeZone {
     #[allow(clippy::upper_case_acronyms)]
     UTC,
@@ -168,7 +180,7 @@ pub enum ReportingRequestTimeZone {
     ORTZ,
 }
 
-#[derive(Deserialize, Serialize, PartialEq, Eq, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone, PartialEq, Eq)]
 pub enum ReportingRequestGranularity {
     #[allow(clippy::upper_case_acronyms)]
     MONTHLY,

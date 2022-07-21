@@ -4,6 +4,7 @@ use serde::{Deserialize, Serialize};
 
 use crate::objects::{condition::Condition, pagination::Pagination, sorting::Sorting};
 
+//
 #[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct Selector {
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -18,6 +19,13 @@ pub struct Selector {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub pagination: Option<Pagination>,
 }
+
+impl Default for Selector {
+    fn default() -> Self {
+        Self::new(vec![Sorting::default()])
+    }
+}
+
 impl Selector {
     pub fn new(order_by: Vec<Sorting>) -> Self {
         Self {

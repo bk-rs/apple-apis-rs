@@ -2,6 +2,7 @@
 
 use serde::{Deserialize, Serialize};
 
+//
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Sorting {
     pub field: Box<str>,
@@ -9,6 +10,13 @@ pub struct Sorting {
     #[serde(rename = "sortOrder")]
     pub sort_order: SortingSortOrder,
 }
+
+impl Default for Sorting {
+    fn default() -> Self {
+        Self::new("localSpend", SortingSortOrder::DESCENDING)
+    }
+}
+
 impl Sorting {
     pub fn new(field: impl AsRef<str>, sort_order: SortingSortOrder) -> Self {
         Self {

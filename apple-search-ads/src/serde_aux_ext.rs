@@ -6,7 +6,7 @@ pub fn deserialize_option_bool_from_anything<'de, D>(
 where
     D: Deserializer<'de>,
 {
-    use std::f64::EPSILON;
+    use core::f64::EPSILON;
 
     #[derive(Deserialize)]
     #[serde(untagged)]

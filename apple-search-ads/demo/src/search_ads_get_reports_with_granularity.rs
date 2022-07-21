@@ -1,39 +1,33 @@
 /*
-cargo run -p apple-search-ads-demo --bin search_ads_get_reports_with_granularity -- campaign MONTHLY demo_certs/search_ads.pem demo_certs/search_ads.key ORG_ID 2020-01-01 2020-04-01
+cargo run -p apple-search-ads-demo --bin search_ads_get_reports_with_granularity -- campaign MONTHLY 'YOUR_ACCESS_TOKEN' ORG_ID 2020-01-01 2020-04-01
 
-cargo run -p apple-search-ads-demo --bin search_ads_get_reports_with_granularity -- campaign WEEKLY demo_certs/search_ads.pem demo_certs/search_ads.key ORG_ID 2020-01-01 2020-02-01
+cargo run -p apple-search-ads-demo --bin search_ads_get_reports_with_granularity -- campaign WEEKLY 'YOUR_ACCESS_TOKEN' ORG_ID 2020-01-01 2020-02-01
 
-cargo run -p apple-search-ads-demo --bin search_ads_get_reports_with_granularity -- ad_group DAILY demo_certs/search_ads.pem demo_certs/search_ads.key ORG_ID 2020-01-01 2020-02-01 CAMPAIGN_ID
-cargo run -p apple-search-ads-demo --bin search_ads_get_reports_with_granularity -- keyword HOURLY demo_certs/search_ads.pem demo_certs/search_ads.key ORG_ID 2020-01-31 2020-02-01 CAMPAIGN_ID
-cargo run -p apple-search-ads-demo --bin search_ads_get_reports_with_granularity -- search_term DAILY demo_certs/search_ads.pem demo_certs/search_ads.key ORG_ID 2020-01-31 2020-02-01 CAMPAIGN_ID
+cargo run -p apple-search-ads-demo --bin search_ads_get_reports_with_granularity -- ad_group DAILY 'YOUR_ACCESS_TOKEN' ORG_ID 2020-01-01 2020-02-01 CAMPAIGN_ID
+cargo run -p apple-search-ads-demo --bin search_ads_get_reports_with_granularity -- keyword HOURLY 'YOUR_ACCESS_TOKEN' ORG_ID 2020-01-31 2020-02-01 CAMPAIGN_ID
+cargo run -p apple-search-ads-demo --bin search_ads_get_reports_with_granularity -- search_term DAILY 'YOUR_ACCESS_TOKEN' ORG_ID 2020-01-31 2020-02-01 CAMPAIGN_ID
 */
 
 use std::{env, error};
 
-use apple_search_ads::objects::{
-    pagination::Pagination,
-    reporting_request::{
-        ReportingRequest, ReportingRequestGranularity, ReportingRequestGroupBy,
-        ReportingRequestTimeZone,
+use apple_search_ads::{
+    endpoints::{
+        EndpointRet, GetAdGroupLevelReports, GetCampaignLevelReports, GetKeywordLevelReports,
+        GetSearchTermLevelReports,
     },
-    selector::Selector,
-    sorting::{Sorting, SortingSortOrder},
-};
-use apple_search_ads::v3::endpoints::{
-    get_ad_group_level_reports::GetAdGroupLevelReports,
-    get_campaign_level_reports::GetCampaignLevelReports,
-    get_keyword_level_reports::GetKeywordLevelReports,
-    get_search_term_level_reports::GetSearchTermLevelReports,
+    objects::{
+        pagination::Pagination,
+        reporting_request::{
+            ReportingRequest, ReportingRequestGranularity, ReportingRequestGroupBy,
+            ReportingRequestTimeZone,
+        },
+        selector::Selector,
+        sorting::{Sorting, SortingSortOrder},
+    },
 };
 use chrono::NaiveDate;
 use futures_lite::future::block_on;
-use http_api_isahc_client::{
-    isahc::{
-        config::{ClientCertificate, Configurable, PrivateKey},
-        HttpClient,
-    },
-    Client as _, IsahcClient,
-};
+use http_api_isahc_client::{Client as _, IsahcClient};
 
 fn main() -> Result<(), Box<dyn error::Error>> {
     env_logger::init();
@@ -44,13 +38,12 @@ fn main() -> Result<(), Box<dyn error::Error>> {
 async fn run() -> Result<(), Box<dyn error::Error>> {
     let level = env::args().nth(1).unwrap();
     let granularity = env::args().nth(2).unwrap();
-    let cert_pem_file_path = env::args().nth(3).unwrap();
-    let private_key_pem_file_path = env::args().nth(4).unwrap();
-    let org_id: u64 = env::args().nth(5).unwrap().parse().unwrap();
-    let start_time: NaiveDate = env::args().nth(6).unwrap().parse().unwrap();
-    let end_time: NaiveDate = env::args().nth(7).unwrap().parse().unwrap();
+    let access_token = env::args().nth(3).unwrap();
+    let org_id: u64 = env::args().nth(4).unwrap().parse().unwrap();
+    let start_time: NaiveDate = env::args().nth(5).unwrap().parse().unwrap();
+    let end_time: NaiveDate = env::args().nth(6).unwrap().parse().unwrap();
     let campaign_id: Option<u64> = env::args()
-        .nth(8)
+        .nth(7)
         .map(|campaign_id| campaign_id.parse().unwrap());
 
     let granularity = match granularity.as_str() {
@@ -60,6 +53,8 @@ async fn run() -> Result<(), Box<dyn error::Error>> {
         "MONTHLY" => ReportingRequestGranularity::MONTHLY,
         _ => return Err("Unknown granularity".into()),
     };
+
+    let client = IsahcClient::new()?;
 
     let mut pagination = Pagination::new();
     pagination.set_limit(1000);
@@ -75,58 +70,80 @@ async fn run() -> Result<(), Box<dyn error::Error>> {
         .set_time_zone(ReportingRequestTimeZone::UTC)
         .set_return_records_with_no_metrics(false);
 
-    let http_client = HttpClient::builder()
-        .ssl_client_certificate(ClientCertificate::pem_file(
-            cert_pem_file_path,
-            PrivateKey::pem_file(private_key_pem_file_path, None),
-        ))
-        .build()?;
-    let isahc_client = IsahcClient::with(http_client);
-
     match level.as_str() {
         "campaign" => {
             let get_campaign_level_reports =
-                GetCampaignLevelReports::new(org_id, reporting_request);
+                GetCampaignLevelReports::new(org_id, reporting_request, access_token);
 
-            let (response_body, response_status) = isahc_client
-                .respond_endpoint(&get_campaign_level_reports)
-                .await?;
+            let ret = client.respond_endpoint(&get_campaign_level_reports).await?;
 
-            println!("{:?}", response_body);
-            println!("{:?}", response_status);
+            match &ret {
+                EndpointRet::Ok(ok_json) => {
+                    println!("{:?}", ok_json);
+                }
+                EndpointRet::Other(_) => {
+                    println!("{:?}", ret);
+                }
+            }
         }
         "ad_group" => {
-            let get_ad_group_level_reports =
-                GetAdGroupLevelReports::new(org_id, campaign_id.unwrap(), reporting_request);
+            let get_ad_group_level_reports = GetAdGroupLevelReports::new(
+                org_id,
+                campaign_id.unwrap(),
+                reporting_request,
+                access_token,
+            );
 
-            let (response_body, response_status) = isahc_client
-                .respond_endpoint(&get_ad_group_level_reports)
-                .await?;
+            let ret = client.respond_endpoint(&get_ad_group_level_reports).await?;
 
-            println!("{:?}", response_body);
-            println!("{:?}", response_status);
+            match &ret {
+                EndpointRet::Ok(ok_json) => {
+                    println!("{:?}", ok_json);
+                }
+                EndpointRet::Other(_) => {
+                    println!("{:?}", ret);
+                }
+            }
         }
         "keyword" => {
-            let get_keyword_level_reports =
-                GetKeywordLevelReports::new(org_id, campaign_id.unwrap(), reporting_request);
+            let get_keyword_level_reports = GetKeywordLevelReports::new(
+                org_id,
+                campaign_id.unwrap(),
+                reporting_request,
+                access_token,
+            );
 
-            let (response_body, response_status) = isahc_client
-                .respond_endpoint(&get_keyword_level_reports)
-                .await?;
+            let ret = client.respond_endpoint(&get_keyword_level_reports).await?;
 
-            println!("{:?}", response_body);
-            println!("{:?}", response_status);
+            match &ret {
+                EndpointRet::Ok(ok_json) => {
+                    println!("{:?}", ok_json);
+                }
+                EndpointRet::Other(_) => {
+                    println!("{:?}", ret);
+                }
+            }
         }
         "search_term" => {
-            let get_search_term_level_reports =
-                GetSearchTermLevelReports::new(org_id, campaign_id.unwrap(), reporting_request);
+            let get_search_term_level_reports = GetSearchTermLevelReports::new(
+                org_id,
+                campaign_id.unwrap(),
+                reporting_request,
+                access_token,
+            );
 
-            let (response_body, response_status) = isahc_client
+            let ret = client
                 .respond_endpoint(&get_search_term_level_reports)
                 .await?;
 
-            println!("{:?}", response_body);
-            println!("{:?}", response_status);
+            match &ret {
+                EndpointRet::Ok(ok_json) => {
+                    println!("{:?}", ok_json);
+                }
+                EndpointRet::Other(_) => {
+                    println!("{:?}", ret);
+                }
+            }
         }
         _ => return Err("Unknown level".into()),
     }

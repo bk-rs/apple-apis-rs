@@ -1,0 +1,18 @@
+{
+    "data": [
+        {
+            "orgName": "org name example",
+            "orgId": 40669820,
+            "currency": "USD",
+            "timeZone": "America/Los_Angeles",
+            "paymentModel": "PAYG",
+            "roleNames": [
+                "Admin"
+            ],
+            "parentOrgId": "27154130",
+            "displayName": "display name example"
+        }
+    ],
+    "pagination": null,
+    "error": null
+}

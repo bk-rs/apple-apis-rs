@@ -2,6 +2,7 @@
 
 use serde::{Deserialize, Serialize};
 
+//
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Condition {
     pub field: Box<str>,
