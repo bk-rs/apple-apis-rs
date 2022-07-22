@@ -8,7 +8,7 @@ pub enum Region {
     #[allow(clippy::upper_case_acronyms)]
     US,
     #[serde(other)]
-    Other(String),
+    Other(Box<str>),
 }
 
 #[cfg(test)]
@@ -18,6 +18,6 @@ mod tests {
     #[test]
     fn test_to_string() {
         assert_eq!(Region::US.to_string(), "US");
-        assert_eq!(Region::Other("CN".to_owned()).to_string(), "CN");
+        assert_eq!(Region::Other("CN".into()).to_string(), "CN");
     }
 }

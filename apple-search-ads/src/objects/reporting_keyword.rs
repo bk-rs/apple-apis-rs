@@ -12,7 +12,7 @@ pub struct ReportingKeyword {
     #[serde(rename = "keywordId")]
     pub keyword_id: u64,
 
-    pub keyword: String,
+    pub keyword: Box<str>,
 
     #[serde(rename = "matchType")]
     pub match_type: ReportingKeywordMatchType,
@@ -21,7 +21,7 @@ pub struct ReportingKeyword {
     pub ad_group_id: u64,
 
     #[serde(rename = "adGroupName")]
-    pub ad_group_name: String,
+    pub ad_group_name: Box<str>,
 
     #[serde(rename = "countryOrRegion")]
     pub country_or_region: Region,

@@ -12,7 +12,7 @@ pub struct ReportingAdGroup {
     pub ad_group_id: u64,
 
     #[serde(rename = "adGroupName")]
-    pub ad_group_name: String,
+    pub ad_group_name: Box<str>,
 
     #[serde(rename = "campaignId")]
     pub campaign_id: u64,

@@ -57,7 +57,7 @@ pub struct Campaign {
     #[serde(rename = "modificationTime")]
     pub modification_time: DateTime<Utc>,
 
-    pub name: String,
+    pub name: Box<str>,
 
     #[serde(rename = "orgId")]
     pub org_id: u64,
@@ -147,7 +147,7 @@ pub enum CampaignAdChannelType {
     #[allow(clippy::upper_case_acronyms)]
     DISPLAY,
     #[serde(other)]
-    Other(String),
+    Other(Box<str>),
 }
 
 #[derive(Deserialize, Debug, Clone, PartialEq, Eq)]
@@ -245,5 +245,5 @@ pub enum CampaignSupplySource {
     #[allow(clippy::upper_case_acronyms)]
     STOCKS,
     #[serde(other)]
-    Other(String),
+    Other(Box<str>),
 }

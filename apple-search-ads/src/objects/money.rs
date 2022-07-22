@@ -8,13 +8,13 @@ use crate::types::currency::Currency;
 pub struct Money {
     pub currency: Currency,
 
-    pub amount: String,
+    pub amount: Box<str>,
 }
 impl Default for Money {
     fn default() -> Self {
         Self {
             currency: Currency::USD,
-            amount: "0".to_owned(),
+            amount: "0".into(),
         }
     }
 }

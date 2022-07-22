@@ -14,7 +14,7 @@ pub struct UserAcl {
     pub org_id: u64,
 
     #[serde(rename = "orgName")]
-    pub org_name: String,
+    pub org_name: Box<str>,
 
     #[serde(rename = "paymentModel")]
     pub payment_model: PaymentModel,
@@ -23,7 +23,7 @@ pub struct UserAcl {
     pub role_names: Vec<UserAclRoleName>,
 
     #[serde(rename = "timeZone")]
-    pub time_zone: String,
+    pub time_zone: Box<str>,
 }
 
 #[derive(Deserialize_enum_str, Serialize_enum_str, Debug, Clone, PartialEq, Eq)]

@@ -25,7 +25,7 @@ pub struct ReportingCampaign {
     pub campaign_id: u64,
 
     #[serde(rename = "campaignName")]
-    pub campaign_name: String,
+    pub campaign_name: Box<str>,
 
     pub deleted: bool,
 

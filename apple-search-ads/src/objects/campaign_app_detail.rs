@@ -6,7 +6,7 @@ use serde::Deserialize;
 #[derive(Deserialize, Debug, Clone)]
 pub struct CampaignAppDetail {
     #[serde(rename = "appName")]
-    pub app_name: String,
+    pub app_name: Box<str>,
 
     #[serde(rename = "adamId")]
     pub adam_id: u64,

@@ -35,13 +35,13 @@ mod tests {
         let user_acl = body.data.first().unwrap();
         assert_eq!(user_acl.currency, Currency::USD);
         assert_eq!(user_acl.org_id, 40669820);
-        assert_eq!(user_acl.org_name, "org name example");
+        assert_eq!(user_acl.org_name.as_ref(), "org name example");
         assert_eq!(user_acl.payment_model, PaymentModel::PAYG);
         assert_eq!(
             user_acl.role_names,
             vec![UserAclRoleName::Other("Admin".into())]
         );
-        assert_eq!(user_acl.time_zone, "America/Los_Angeles");
+        assert_eq!(user_acl.time_zone.as_ref(), "America/Los_Angeles");
 
         Ok(())
     }
@@ -59,13 +59,13 @@ mod tests {
         let user_acl = body.data.first().unwrap();
         assert_eq!(user_acl.currency, Currency::USD);
         assert_eq!(user_acl.org_id, 1);
-        assert_eq!(user_acl.org_name, "orgName");
+        assert_eq!(user_acl.org_name.as_ref(), "orgName");
         assert_eq!(user_acl.payment_model, PaymentModel::LOC);
         assert_eq!(
             user_acl.role_names,
             vec![UserAclRoleName::Other("Campaign Group Manager".into())]
         );
-        assert_eq!(user_acl.time_zone, "Asia/Hong_Kong");
+        assert_eq!(user_acl.time_zone.as_ref(), "Asia/Hong_Kong");
 
         Ok(())
     }

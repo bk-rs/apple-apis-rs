@@ -6,8 +6,8 @@ use serde_enum_str::{Deserialize_enum_str, Serialize_enum_str};
 //
 #[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct ErrorResponseItem {
-    pub field: String,
-    pub message: String,
+    pub field: Box<str>,
+    pub message: Box<str>,
     #[serde(rename = "messageCode")]
     pub message_code: ErrorResponseItemMessageCode,
 }
@@ -19,7 +19,7 @@ pub enum ErrorResponseItemMessageCode {
     #[serde(rename = "INVALID_DATE_FORMAT")]
     InvalidDateFormat,
     #[serde(other)]
-    Other(String),
+    Other(Box<str>),
 }
 
 #[cfg(test)]
@@ -38,11 +38,11 @@ mod tests {
             }"#,
         )?;
 
-        assert_eq!(item.field, "<FIELD>");
-        assert_eq!(item.message, "<MESSAGE>");
+        assert_eq!(item.field.as_ref(), "<FIELD>");
+        assert_eq!(item.message.as_ref(), "<MESSAGE>");
         assert_eq!(
             item.message_code,
-            ErrorResponseItemMessageCode::Other("<CODE>".to_owned())
+            ErrorResponseItemMessageCode::Other("<CODE>".into())
         );
 
         Ok(())
@@ -68,7 +68,7 @@ mod tests {
 
         assert_eq!(
             serde_json::from_str::<Foo>(r#"{"message_code": "Bar"}"#,)?.message_code,
-            ErrorResponseItemMessageCode::Other("Bar".to_owned())
+            ErrorResponseItemMessageCode::Other("Bar".into())
         );
 
         Ok(())
