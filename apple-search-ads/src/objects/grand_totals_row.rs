@@ -1,11 +1,11 @@
 // https://developer.apple.com/documentation/apple_search_ads/grandtotalsrow
 
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
 use crate::objects::spend_row::SpendRow;
 
 //
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct GrandTotalsRow {
     pub other: bool,
     pub total: SpendRow,

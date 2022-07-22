@@ -1,6 +1,6 @@
 // https://developer.apple.com/documentation/apple_search_ads/row
 
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
 use crate::objects::{
     extended_spend_row::ExtendedSpendRow, reporting_ad_group::ReportingAdGroup,
@@ -9,7 +9,7 @@ use crate::objects::{
 };
 
 //
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct Row<M, I>
 where
     M: Sized,

@@ -1,11 +1,11 @@
 // https://developer.apple.com/documentation/apple_search_ads/reportingadgroup
 
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
 use crate::types::region::Region;
 
 //
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct ReportingAdGroup {
     // TODO
     #[serde(rename = "adGroupId")]

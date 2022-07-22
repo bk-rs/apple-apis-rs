@@ -1,10 +1,10 @@
 // https://developer.apple.com/documentation/apple_search_ads/money
 
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
 use crate::types::currency::Currency;
 
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct Money {
     pub currency: Currency,
 

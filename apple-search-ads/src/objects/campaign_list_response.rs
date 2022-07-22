@@ -1,10 +1,10 @@
 // https://developer.apple.com/documentation/apple_search_ads/campaignlistresponse
 
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
 use crate::objects::{campaign::Campaign, page_detail::PageDetail};
 
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct CampaignListResponse {
     pub data: Vec<Campaign>,
     pub pagination: PageDetail,

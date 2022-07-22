@@ -6,7 +6,7 @@ use serde::{Deserialize, Serialize};
 use crate::objects::money::Money;
 
 //
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct ExtendedSpendRow {
     pub date: ExtendedSpendRowDate,
 

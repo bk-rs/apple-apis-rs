@@ -1,9 +1,9 @@
 // https://developer.apple.com/documentation/apple_search_ads/keyword
 
-use serde_enum_str::Deserialize_enum_str;
+use serde_enum_str::{Deserialize_enum_str, Serialize_enum_str};
 
 //
-#[derive(Deserialize_enum_str, Debug, Clone, PartialEq, Eq)]
+#[derive(Deserialize_enum_str, Serialize_enum_str, Debug, Clone, PartialEq, Eq)]
 pub enum KeywordMatchType {
     #[allow(clippy::upper_case_acronyms)]
     EXACT,

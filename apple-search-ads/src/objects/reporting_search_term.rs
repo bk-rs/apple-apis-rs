@@ -1,12 +1,12 @@
 // https://developer.apple.com/documentation/apple_search_ads/reportingsearchterm
 
-use serde::Deserialize;
-use serde_enum_str::Deserialize_enum_str;
+use serde::{Deserialize, Serialize};
+use serde_enum_str::{Deserialize_enum_str, Serialize_enum_str};
 
 use crate::types::region::Region;
 
 //
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct ReportingSearchTerm {
     // TODO
     #[serde(rename = "searchTermText")]
@@ -33,7 +33,7 @@ pub struct ReportingSearchTerm {
     pub country_or_region: Region,
 }
 
-#[derive(Deserialize_enum_str, Debug, Clone, PartialEq, Eq)]
+#[derive(Deserialize_enum_str, Serialize_enum_str, Debug, Clone, PartialEq, Eq)]
 pub enum SearchTermSource {
     #[allow(clippy::upper_case_acronyms)]
     AUTO,
@@ -41,7 +41,7 @@ pub enum SearchTermSource {
     TARGETED,
 }
 
-#[derive(Deserialize_enum_str, Debug, Clone, PartialEq, Eq)]
+#[derive(Deserialize_enum_str, Serialize_enum_str, Debug, Clone, PartialEq, Eq)]
 pub enum ReportingSearchTermMatchType {
     #[allow(clippy::upper_case_acronyms)]
     AUTO,

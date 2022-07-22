@@ -4,8 +4,8 @@
 #![allow(non_camel_case_types, clippy::upper_case_acronyms)]
 
 use chrono::{DateTime, Utc};
-use serde::Deserialize;
-use serde_enum_str::Deserialize_enum_str;
+use serde::{Deserialize, Serialize};
+use serde_enum_str::{Deserialize_enum_str, Serialize_enum_str};
 
 use crate::{
     objects::{
@@ -15,7 +15,7 @@ use crate::{
     types::{payment_model::PaymentModel, region::Region},
 };
 
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct Campaign {
     #[serde(rename = "adChannelType")]
     pub ad_channel_type: CampaignAdChannelType,
@@ -140,7 +140,7 @@ pub mod campaign_date_format {
 }
 
 //
-#[derive(Deserialize_enum_str, Debug, Clone, PartialEq, Eq)]
+#[derive(Deserialize_enum_str, Serialize_enum_str, Debug, Clone, PartialEq, Eq)]
 pub enum CampaignAdChannelType {
     #[allow(clippy::upper_case_acronyms)]
     SEARCH,
@@ -150,7 +150,7 @@ pub enum CampaignAdChannelType {
     Other(Box<str>),
 }
 
-#[derive(Deserialize, Debug, Clone, PartialEq, Eq)]
+#[derive(Deserialize, Serialize, Debug, Clone, PartialEq, Eq)]
 pub enum CampaignDisplayStatus {
     #[allow(clippy::upper_case_acronyms)]
     RUNNING,
@@ -162,7 +162,7 @@ pub enum CampaignDisplayStatus {
     DELETED,
 }
 
-#[derive(Deserialize_enum_str, Debug, Clone, PartialEq, Eq)]
+#[derive(Deserialize_enum_str, Serialize_enum_str, Debug, Clone, PartialEq, Eq)]
 pub enum CampaignServingStateReason {
     #[allow(non_camel_case_types, clippy::upper_case_acronyms)]
     NO_PAYMENT_METHOD_ON_FILE,
@@ -220,7 +220,7 @@ pub enum CampaignServingStateReason {
     AD_GROUP_MISSING,
 }
 
-#[derive(Deserialize_enum_str, Debug, Clone, PartialEq, Eq)]
+#[derive(Deserialize_enum_str, Serialize_enum_str, Debug, Clone, PartialEq, Eq)]
 pub enum CampaignServingStatus {
     #[allow(clippy::upper_case_acronyms)]
     RUNNING,
@@ -228,7 +228,7 @@ pub enum CampaignServingStatus {
     NOT_RUNNING,
 }
 
-#[derive(Deserialize_enum_str, Debug, Clone, PartialEq, Eq)]
+#[derive(Deserialize_enum_str, Serialize_enum_str, Debug, Clone, PartialEq, Eq)]
 pub enum CampaignStatus {
     #[allow(clippy::upper_case_acronyms)]
     ENABLED,
@@ -236,7 +236,7 @@ pub enum CampaignStatus {
     PAUSED,
 }
 
-#[derive(Deserialize_enum_str, Debug, Clone, PartialEq, Eq)]
+#[derive(Deserialize_enum_str, Serialize_enum_str, Debug, Clone, PartialEq, Eq)]
 pub enum CampaignSupplySource {
     #[allow(non_camel_case_types, clippy::upper_case_acronyms)]
     APPSTORE_SEARCH_RESULTS,

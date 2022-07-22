@@ -1,11 +1,11 @@
 // https://developer.apple.com/documentation/apple_search_ads/spendrow
 
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
 use crate::objects::money::Money;
 
 //
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct SpendRow {
     #[serde(rename = "avgCPA")]
     pub avg_cpa: Money,

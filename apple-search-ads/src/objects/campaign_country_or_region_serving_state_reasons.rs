@@ -2,14 +2,14 @@
 
 use std::collections::HashMap;
 
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
 use crate::types::region::Region;
 
 pub type CampaignCountryOrRegionServingStateReasons =
     HashMap<Region, Vec<CampaignCountryOrRegionServingStateReason>>;
 
-#[derive(Deserialize, Debug, Clone, PartialEq, Eq)]
+#[derive(Deserialize, Serialize, Debug, Clone, PartialEq, Eq)]
 pub enum CampaignCountryOrRegionServingStateReason {
     #[allow(non_camel_case_types, clippy::upper_case_acronyms)]
     APP_NOT_ELIGIBLE,

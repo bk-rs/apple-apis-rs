@@ -1,11 +1,11 @@
 // https://developer.apple.com/documentation/apple_search_ads/keywordbidrecommendation
 
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
 use crate::objects::money::Money;
 
 //
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct KeywordBidRecommendation {
     #[serde(rename = "bidMax")]
     pub bid_max: Option<Money>,

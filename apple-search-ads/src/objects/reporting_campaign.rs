@@ -1,7 +1,7 @@
 // https://developer.apple.com/documentation/apple_search_ads/reportingcampaign
 
 use chrono::{DateTime, Utc};
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
 use crate::{
     objects::{
@@ -18,7 +18,7 @@ use crate::{
 };
 
 //
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct ReportingCampaign {
     // TODO
     #[serde(rename = "campaignId")]

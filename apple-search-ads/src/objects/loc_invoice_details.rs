@@ -1,8 +1,8 @@
 // https://developer.apple.com/documentation/apple_search_ads/locinvoicedetails
 
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
-#[derive(Deserialize, Debug, Clone, PartialEq, Eq)]
+#[derive(Deserialize, Serialize, Debug, Clone, PartialEq, Eq)]
 #[allow(clippy::upper_case_acronyms)]
 pub struct LOCInvoiceDetails {
     #[serde(rename = "billingContactEmail")]

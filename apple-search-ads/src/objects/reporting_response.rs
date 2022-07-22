@@ -1,11 +1,11 @@
 // https://developer.apple.com/documentation/apple_search_ads/reportingresponse
 
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
 use crate::objects::reporting_data_response::ReportingDataResponse;
 
 //
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct ReportingResponse<M, I>
 where
     M: Sized,
