@@ -20,6 +20,7 @@ pub struct ReportingAdGroup {
     #[serde(rename = "orgId")]
     pub org_id: u64,
 
+    // Some when groupBy countryOrRegion
     #[serde(rename = "countryOrRegion")]
-    pub country_or_region: Region,
+    pub country_or_region: Option<Region>,
 }

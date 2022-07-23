@@ -68,6 +68,7 @@ pub struct ReportingCampaign {
     #[serde(rename = "countryOrRegionServingStateReasons")]
     pub country_or_region_serving_state_reasons: CampaignCountryOrRegionServingStateReasons,
 
+    // Some when groupBy countryOrRegion
     #[serde(rename = "countryOrRegion")]
-    pub country_or_region: Region,
+    pub country_or_region: Option<Region>,
 }

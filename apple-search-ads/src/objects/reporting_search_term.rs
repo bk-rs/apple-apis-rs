@@ -29,8 +29,9 @@ pub struct ReportingSearchTerm {
     #[serde(rename = "adGroupName")]
     pub ad_group_name: Box<str>,
 
+    // Some when groupBy countryOrRegion
     #[serde(rename = "countryOrRegion")]
-    pub country_or_region: Region,
+    pub country_or_region: Option<Region>,
 }
 
 #[derive(Deserialize_enum_str, Serialize_enum_str, Debug, Clone, PartialEq, Eq)]
