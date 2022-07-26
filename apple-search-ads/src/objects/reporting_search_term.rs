@@ -18,7 +18,7 @@ pub struct ReportingSearchTerm {
     #[serde(rename = "keywordId")]
     pub keyword_id: Option<u64>,
 
-    pub keyword: Box<str>,
+    pub keyword: Option<Box<str>>,
 
     #[serde(rename = "matchType")]
     pub match_type: ReportingSearchTermMatchType,
