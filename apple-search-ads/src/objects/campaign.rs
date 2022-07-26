@@ -24,7 +24,7 @@ pub struct Campaign {
     pub adam_id: u64,
 
     #[serde(rename = "budgetAmount")]
-    pub budget_amount: Money,
+    pub budget_amount: Option<Money>,
 
     #[serde(rename = "budgetOrders")]
     pub budget_orders: Vec<u64>,
@@ -73,9 +73,10 @@ pub struct Campaign {
 
     pub status: CampaignStatus,
 
-    #[serde(with = "campaign_date_format")]
+    #[serde(default)]
+    #[serde(with = "campaign_option_date_format")]
     #[serde(rename = "startTime")]
-    pub start_time: DateTime<Utc>,
+    pub start_time: Option<DateTime<Utc>>,
 
     #[serde(rename = "supplySources")]
     pub supply_sources: Vec<CampaignSupplySource>,
