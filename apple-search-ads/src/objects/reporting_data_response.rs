@@ -11,7 +11,7 @@ where
     M: Sized,
     I: Sized,
 {
-    #[serde(rename = "grandTotals")]
+    #[serde(rename = "grandTotals", skip_serializing_if = "Option::is_none")]
     pub grand_totals: Option<GrandTotalsRow>,
 
     pub row: Vec<Row<M, I>>,

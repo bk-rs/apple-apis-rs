@@ -23,7 +23,7 @@ pub struct Campaign {
     #[serde(rename = "adamId")]
     pub adam_id: u64,
 
-    #[serde(rename = "budgetAmount")]
+    #[serde(rename = "budgetAmount", skip_serializing_if = "Option::is_none")]
     pub budget_amount: Option<Money>,
 
     #[serde(rename = "budgetOrders")]
@@ -35,7 +35,7 @@ pub struct Campaign {
     #[serde(rename = "countryOrRegionServingStateReasons")]
     pub country_or_region_serving_state_reasons: CampaignCountryOrRegionServingStateReasons,
 
-    #[serde(rename = "dailyBudgetAmount")]
+    #[serde(rename = "dailyBudgetAmount", skip_serializing_if = "Option::is_none")]
     pub daily_budget_amount: Option<Money>,
 
     pub deleted: bool,
@@ -43,9 +43,12 @@ pub struct Campaign {
     #[serde(rename = "displayStatus")]
     pub display_status: CampaignDisplayStatus,
 
-    #[serde(default)]
-    #[serde(with = "campaign_option_date_format")]
-    #[serde(rename = "endTime")]
+    #[serde(
+        default,
+        with = "campaign_option_date_format",
+        rename = "endTime",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub end_time: Option<DateTime<Utc>>,
 
     pub id: u64,
@@ -65,7 +68,10 @@ pub struct Campaign {
     #[serde(rename = "paymentModel")]
     pub payment_model: PaymentModel,
 
-    #[serde(rename = "servingStateReasons")]
+    #[serde(
+        rename = "servingStateReasons",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub serving_state_reasons: Option<Vec<CampaignServingStateReason>>,
 
     #[serde(rename = "servingStatus")]
@@ -73,9 +79,12 @@ pub struct Campaign {
 
     pub status: CampaignStatus,
 
-    #[serde(default)]
-    #[serde(with = "campaign_option_date_format")]
-    #[serde(rename = "startTime")]
+    #[serde(
+        default,
+        with = "campaign_option_date_format",
+        rename = "startTime",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub start_time: Option<DateTime<Utc>>,
 
     #[serde(rename = "supplySources")]

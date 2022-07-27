@@ -15,14 +15,17 @@ where
     M: Sized,
     I: Sized,
 {
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub granularity: Option<Vec<ExtendedSpendRow>>,
 
     pub other: bool,
 
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub total: Option<SpendRow>,
 
     pub metadata: M,
 
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub insights: Option<I>,
 }
 

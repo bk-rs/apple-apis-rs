@@ -37,7 +37,10 @@ pub struct ReportingCampaign {
     #[serde(rename = "servingStatus")]
     pub serving_status: CampaignServingStatus,
 
-    #[serde(rename = "servingStateReasons")]
+    #[serde(
+        rename = "servingStateReasons",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub serving_state_reasons: Option<Vec<CampaignServingStateReason>>,
 
     #[serde(rename = "countriesOrRegions")]
@@ -47,10 +50,10 @@ pub struct ReportingCampaign {
     #[serde(rename = "modificationTime")]
     pub modification_time: DateTime<Utc>,
 
-    #[serde(rename = "totalBudget")]
+    #[serde(rename = "totalBudget", skip_serializing_if = "Option::is_none")]
     pub total_budget: Option<Money>,
 
-    #[serde(rename = "dailyBudget")]
+    #[serde(rename = "dailyBudget", skip_serializing_if = "Option::is_none")]
     pub daily_budget: Option<Money>,
 
     #[serde(rename = "displayStatus")]
@@ -69,6 +72,6 @@ pub struct ReportingCampaign {
     pub country_or_region_serving_state_reasons: CampaignCountryOrRegionServingStateReasons,
 
     // Some when groupBy countryOrRegion
-    #[serde(rename = "countryOrRegion")]
+    #[serde(rename = "countryOrRegion", skip_serializing_if = "Option::is_none")]
     pub country_or_region: Option<Region>,
 }

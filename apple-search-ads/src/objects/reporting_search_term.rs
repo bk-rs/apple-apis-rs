@@ -9,15 +9,16 @@ use crate::types::region::Region;
 #[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct ReportingSearchTerm {
     // TODO
-    #[serde(rename = "searchTermText")]
+    #[serde(rename = "searchTermText", skip_serializing_if = "Option::is_none")]
     pub search_term_text: Option<String>,
 
     #[serde(rename = "searchTermSource")]
     pub search_term_source: SearchTermSource,
 
-    #[serde(rename = "keywordId")]
+    #[serde(rename = "keywordId", skip_serializing_if = "Option::is_none")]
     pub keyword_id: Option<u64>,
 
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub keyword: Option<Box<str>>,
 
     #[serde(rename = "matchType")]
@@ -30,7 +31,7 @@ pub struct ReportingSearchTerm {
     pub ad_group_name: Box<str>,
 
     // Some when groupBy countryOrRegion
-    #[serde(rename = "countryOrRegion")]
+    #[serde(rename = "countryOrRegion", skip_serializing_if = "Option::is_none")]
     pub country_or_region: Option<Region>,
 }
 

@@ -21,6 +21,6 @@ pub struct ReportingAdGroup {
     pub org_id: u64,
 
     // Some when groupBy countryOrRegion
-    #[serde(rename = "countryOrRegion")]
+    #[serde(rename = "countryOrRegion", skip_serializing_if = "Option::is_none")]
     pub country_or_region: Option<Region>,
 }

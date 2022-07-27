@@ -10,35 +10,40 @@ use crate::objects::money::Money;
 pub struct ExtendedSpendRow {
     pub date: ExtendedSpendRowDate,
 
-    #[serde(rename = "avgCPA")]
+    #[serde(rename = "avgCPA", skip_serializing_if = "Option::is_none")]
     pub avg_cpa: Option<Money>,
 
-    #[serde(rename = "avgCPT")]
+    #[serde(rename = "avgCPT", skip_serializing_if = "Option::is_none")]
     pub avg_cpt: Option<Money>,
 
-    #[serde(rename = "conversionRate")]
+    #[serde(rename = "conversionRate", skip_serializing_if = "Option::is_none")]
     pub conversion_rate: Option<f64>,
 
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub impressions: Option<u64>,
 
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub installs: Option<u64>,
 
-    #[serde(rename = "latOffInstalls")]
+    #[serde(rename = "latOffInstalls", skip_serializing_if = "Option::is_none")]
     pub lat_off_installs: Option<u64>,
 
-    #[serde(rename = "latOnInstalls")]
+    #[serde(rename = "latOnInstalls", skip_serializing_if = "Option::is_none")]
     pub lat_on_installs: Option<u64>,
 
-    #[serde(rename = "localSpend")]
+    #[serde(rename = "localSpend", skip_serializing_if = "Option::is_none")]
     pub local_spend: Option<Money>,
 
-    #[serde(rename = "newDownloads")]
+    #[serde(rename = "newDownloads", skip_serializing_if = "Option::is_none")]
     pub new_downloads: Option<u64>,
 
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub redownloads: Option<u64>,
 
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub taps: Option<u64>,
 
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub ttr: Option<f64>,
 }
 

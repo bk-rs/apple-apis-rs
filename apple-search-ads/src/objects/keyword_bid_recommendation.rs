@@ -7,9 +7,9 @@ use crate::objects::money::Money;
 //
 #[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct KeywordBidRecommendation {
-    #[serde(rename = "bidMax")]
+    #[serde(rename = "bidMax", skip_serializing_if = "Option::is_none")]
     pub bid_max: Option<Money>,
 
-    #[serde(rename = "bidMin")]
+    #[serde(rename = "bidMin", skip_serializing_if = "Option::is_none")]
     pub bid_min: Option<Money>,
 }

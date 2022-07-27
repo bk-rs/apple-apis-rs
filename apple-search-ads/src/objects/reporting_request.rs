@@ -20,38 +20,36 @@ pub struct ReportingRequest {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub granularity: Option<ReportingRequestGranularity>,
 
-    #[serde(skip_serializing_if = "Option::is_none")]
-    #[serde(rename = "groupBy")]
+    #[serde(rename = "groupBy", skip_serializing_if = "Option::is_none")]
     pub group_by: Option<Vec<ReportingRequestGroupBy>>,
 
     #[serde(
         default,
         deserialize_with = "deserialize_option_bool_from_anything",
-        skip_serializing_if = "Option::is_none",
-        rename = "returnGrandTotals"
+        rename = "returnGrandTotals",
+        skip_serializing_if = "Option::is_none"
     )]
     pub return_grand_totals: Option<bool>,
 
     #[serde(
         default,
         deserialize_with = "deserialize_option_bool_from_anything",
-        skip_serializing_if = "Option::is_none",
-        rename = "returnRecordsWithNoMetrics"
+        rename = "returnRecordsWithNoMetrics",
+        skip_serializing_if = "Option::is_none"
     )]
     pub return_records_with_no_metrics: Option<bool>,
 
     #[serde(
         default,
         deserialize_with = "deserialize_option_bool_from_anything",
-        skip_serializing_if = "Option::is_none",
-        rename = "returnRowTotals"
+        rename = "returnRowTotals",
+        skip_serializing_if = "Option::is_none"
     )]
     pub return_row_totals: Option<bool>,
 
     pub selector: Selector,
 
-    #[serde(skip_serializing_if = "Option::is_none")]
-    #[serde(rename = "timeZone")]
+    #[serde(rename = "timeZone", skip_serializing_if = "Option::is_none")]
     pub time_zone: Option<ReportingRequestTimeZone>,
 }
 
