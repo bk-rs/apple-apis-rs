@@ -48,7 +48,7 @@ pub struct ReportingCampaign {
     pub modification_time: DateTime<Utc>,
 
     #[serde(rename = "totalBudget")]
-    pub total_budget: Money,
+    pub total_budget: Option<Money>,
 
     #[serde(rename = "dailyBudget")]
     pub daily_budget: Option<Money>,
