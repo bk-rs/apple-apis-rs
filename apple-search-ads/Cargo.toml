@@ -15,11 +15,9 @@ readme = "README.md"
 [dependencies]
 http-api-client-endpoint = { version = "0.2", default-features = false }
 
-serde = { version = "1.0", default-features = false, features = ["std", "derive"] }
-serde_json = { version = "1.0", default-features = false, features = ["std"] }
+serde = { version = "1", default-features = false, features = ["std", "derive"] }
+serde_json = { version = "1", default-features = false, features = ["std"] }
 chrono = { version = "0.4", default-features = false, features = ["alloc", "clock"] }
 serde-enum-str = { version = "0.2", default-features = false }
 url = { version = "2.2", default-features = false }
 serde-aux-ext = { version = "0.1", default-features = false }
-
-thiserror = { version = "1.0", default-features = false }
