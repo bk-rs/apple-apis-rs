@@ -14,3 +14,11 @@ where
     #[serde(rename = "reportingDataResponse")]
     pub reporting_data_response: ReportingDataResponse<M, I>,
 }
+
+impl<M, I> Default for ReportingResponse<M, I> {
+    fn default() -> Self {
+        Self {
+            reporting_data_response: ReportingDataResponse::default(),
+        }
+    }
+}

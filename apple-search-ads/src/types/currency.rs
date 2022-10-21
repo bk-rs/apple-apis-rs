@@ -23,4 +23,7 @@ pub enum Currency {
     RUB,
     #[allow(clippy::upper_case_acronyms)]
     USD,
+    //
+    #[serde(other)]
+    Other(Box<str>),
 }

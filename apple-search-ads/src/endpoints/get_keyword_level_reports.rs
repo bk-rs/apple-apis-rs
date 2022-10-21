@@ -136,4 +136,24 @@ mod tests {
         assert_eq!(req.headers().get("X-AP-Context").unwrap(), "orgId=1");
         assert!(!req.body().is_empty());
     }
+
+    #[test]
+    fn test_reporting_response_body_default() {
+        let body = ReportingResponseBody::<KeywordLevelRowMetaData, KeywordInsights>::default();
+        assert_eq!(
+            serde_json::to_value(&body).unwrap(),
+            serde_json::json!({
+                "data": {
+                    "reportingDataResponse": {
+                        "row": []
+                    }
+                },
+                "pagination": {
+                    "totalResults": 0,
+                    "startIndex": 0,
+                    "itemsPerPage": 0
+                }
+            })
+        );
+    }
 }

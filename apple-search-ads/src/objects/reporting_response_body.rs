@@ -23,6 +23,15 @@ where
     pub pagination: PageDetail,
 }
 
+impl<M, I> Default for ReportingResponseBody<M, I> {
+    fn default() -> Self {
+        Self {
+            data: ReportingResponse::default(),
+            pagination: PageDetail::default(),
+        }
+    }
+}
+
 pub type CampaignLevelReportingResponseBody = ReportingResponseBody<CampaignLevelRowMetaData, ()>;
 pub type AdGroupLevelReportingResponseBody = ReportingResponseBody<AdGroupLevelRowMetaData, ()>;
 pub type KeywordLevelReportingResponseBody =

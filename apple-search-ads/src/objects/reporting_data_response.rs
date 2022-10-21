@@ -16,3 +16,12 @@ where
 
     pub row: Vec<Row<M, I>>,
 }
+
+impl<M, I> Default for ReportingDataResponse<M, I> {
+    fn default() -> Self {
+        Self {
+            grand_totals: None,
+            row: vec![],
+        }
+    }
+}

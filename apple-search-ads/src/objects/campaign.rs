@@ -228,6 +228,9 @@ pub enum CampaignServingStateReason {
     NO_ELIGIBLE_COUNTRIES,
     #[allow(non_camel_case_types, clippy::upper_case_acronyms)]
     AD_GROUP_MISSING,
+    //
+    #[serde(other)]
+    Other(Box<str>),
 }
 
 #[derive(Deserialize_enum_str, Serialize_enum_str, Debug, Clone, PartialEq, Eq)]
