@@ -41,7 +41,7 @@ impl<'de> Deserialize<'de> for Status {
             21009 => Ok(Self::Error21009),
             21010 => Ok(Self::Error21010),
             21100..=21199 => Ok(Self::InternalDataAccessError(v)),
-            _ => Err(de::Error::custom(format!("unknown status value [{}]", v))),
+            _ => Err(de::Error::custom(format!("unknown status value [{v}]"))),
         }
     }
 }
@@ -64,7 +64,7 @@ impl fmt::Display for Status {
             Self::Error21008 => write!(f, "[21008] This receipt is from the production environment, but it was sent to the test environment for verification."),
             Self::Error21009 => write!(f, "[21009] Internal data access error. Try again later."),
             Self::Error21010 => write!(f, "[21010] The user account cannot be found or has been deleted."),
-            Self::InternalDataAccessError(v) => write!(f, "[{}] internal data access errors.", v),
+            Self::InternalDataAccessError(v) => write!(f, "[{v}] internal data access errors."),
         }
     }
 }

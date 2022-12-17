@@ -25,10 +25,10 @@ async fn run() -> Result<(), Box<dyn error::Error>> {
 
     match &ret {
         EndpointRet::Ok(ok_json) => {
-            println!("{:?}", ok_json);
+            println!("{ok_json:?}");
         }
         EndpointRet::Other(_) => {
-            println!("{:?}", ret);
+            println!("{ret:?}");
         }
     }
 

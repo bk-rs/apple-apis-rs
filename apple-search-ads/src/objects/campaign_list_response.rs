@@ -24,7 +24,7 @@ mod tests {
             include_str!("../../tests/v3/response_body_json_files/campaign_list_response.json");
 
         let body: CampaignListResponse = serde_json::from_str(json_content)?;
-        println!("{:?}", body);
+        println!("{body:?}");
 
         assert_eq!(body.data.len(), 1);
         assert_eq!(body.pagination.total_results, 1);

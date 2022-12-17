@@ -37,7 +37,7 @@ async fn run() -> Result<(), Box<dyn error::Error>> {
         .respond_endpoint_until_done(&verify_receipt)
         .await?;
 
-    println!("{:?}", response_body);
+    println!("{response_body:?}");
 
     println!("done");
 

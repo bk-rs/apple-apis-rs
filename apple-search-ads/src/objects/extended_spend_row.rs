@@ -107,7 +107,7 @@ pub mod extended_spend_row_date_date_and_hour_format {
         D: Deserializer<'de>,
     {
         let s = String::deserialize(deserializer)?;
-        NaiveDateTime::parse_from_str(format!("{}:00:00", s).as_str(), FORMAT_DE)
+        NaiveDateTime::parse_from_str(format!("{s}:00:00").as_str(), FORMAT_DE)
             .map_err(serde::de::Error::custom)
     }
 }
@@ -132,7 +132,7 @@ mod tests {
         }
 
         assert_eq!(
-            serde_json::to_value(&ExtendedSpendRowDate::from_ymd(2020, 1, 1))?,
+            serde_json::to_value(ExtendedSpendRowDate::from_ymd(2020, 1, 1))?,
             Value::String("2020-01-01".into())
         );
         assert_eq!(
@@ -141,7 +141,7 @@ mod tests {
         );
 
         assert_eq!(
-            serde_json::to_value(&ExtendedSpendRowDate::from_ymd_and_hour(2020, 1, 1, 0))?,
+            serde_json::to_value(ExtendedSpendRowDate::from_ymd_and_hour(2020, 1, 1, 0))?,
             Value::String("2020-01-01 00".into())
         );
         assert_eq!(
@@ -150,7 +150,7 @@ mod tests {
         );
 
         assert_eq!(
-            serde_json::to_value(&ExtendedSpendRowDate::from_ymd_and_hour(2020, 1, 1, 1))?,
+            serde_json::to_value(ExtendedSpendRowDate::from_ymd_and_hour(2020, 1, 1, 1))?,
             Value::String("2020-01-01 01".into())
         );
         assert_eq!(

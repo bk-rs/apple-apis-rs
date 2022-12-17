@@ -55,11 +55,11 @@ impl Endpoint for GetAllCampaigns {
         if let Some(ref pagination) = self.pagination {
             if let Some(limit) = pagination.limit {
                 url.query_pairs_mut()
-                    .append_pair("limit", format!("{}", limit).as_str());
+                    .append_pair("limit", format!("{limit}").as_str());
             }
             if let Some(offset) = pagination.offset {
                 url.query_pairs_mut()
-                    .append_pair("offset", format!("{}", offset).as_str());
+                    .append_pair("offset", format!("{offset}").as_str());
             }
         }
 

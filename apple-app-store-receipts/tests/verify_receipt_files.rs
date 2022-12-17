@@ -41,14 +41,14 @@ fn respond_all() -> Result<(), Box<dyn error::Error>> {
                 {
                     Ok(response_body) => match response_body {
                         ResponseBody::Success(_) => {
-                            println!("path {:?} respond successful", path);
+                            println!("path {path:?} respond successful");
                         }
                         ResponseBody::Error(body) => {
-                            println!("path {:?} respond successful, body: {:?}", path, body);
+                            println!("path {path:?} respond successful, body: {body:?}");
                         }
                     },
                     Err(err) => {
-                        eprintln!("path {:?} respond failed, err: {:?}", path, err);
+                        eprintln!("path {path:?} respond failed, err: {err:?}");
                         match err {
                             RetryableClientRespondEndpointUntilDoneError::RespondFailed(
                                 ref isahc_err,

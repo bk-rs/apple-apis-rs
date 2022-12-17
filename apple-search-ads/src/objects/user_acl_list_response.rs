@@ -28,7 +28,7 @@ mod tests {
             include_str!("../../tests/v4/response_body_json_files/user_acl_list_response.json");
 
         let body: UserAclListResponse = serde_json::from_str(json_content)?;
-        println!("{:?}", body);
+        println!("{body:?}");
 
         assert_eq!(body.data.len(), 1);
         assert!(body.pagination.is_none());
@@ -52,7 +52,7 @@ mod tests {
             include_str!("../../tests/v3/response_body_json_files/user_acl_list_response.json");
 
         let body: UserAclListResponse = serde_json::from_str(json_content)?;
-        println!("{:?}", body);
+        println!("{body:?}");
 
         assert_eq!(body.data.len(), 1);
         assert!(body.pagination.is_none());

@@ -15,14 +15,14 @@ fn de_all() -> Result<(), Box<dyn error::Error>> {
                     ResponseBody::Success(_) => {
                         assert!(content.contains(r#""status":0"#));
 
-                        println!("path {:?} de successful", path);
+                        println!("path {path:?} de successful");
                     }
                     ResponseBody::Error(body) => {
-                        println!("path {:?} de successful, body: {:?}", path, body);
+                        println!("path {path:?} de successful, body: {body:?}");
                     }
                 },
                 Err(err) => {
-                    eprintln!("path {:?} de failed, err: {:?}", path, err);
+                    eprintln!("path {path:?} de failed, err: {err:?}");
                     return Err(err.into());
                 }
             }
