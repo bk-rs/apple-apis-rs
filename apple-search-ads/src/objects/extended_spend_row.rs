@@ -58,7 +58,7 @@ pub enum ExtendedSpendRowDate {
 impl ExtendedSpendRowDate {
     pub fn to_datetime(&self) -> NaiveDateTime {
         match self {
-            Self::Date(d) => d.and_hms(0, 0, 0),
+            Self::Date(d) => d.and_hms_opt(0, 0, 0).expect(""),
             Self::DateAndHour(dt) => dt.to_owned(),
         }
     }
@@ -124,10 +124,15 @@ mod tests {
     fn test_ser_and_de_date() -> Result<(), Box<dyn error::Error>> {
         impl ExtendedSpendRowDate {
             fn from_ymd(year: i32, month: u32, day: u32) -> Self {
-                Self::Date(NaiveDate::from_ymd(year, month, day))
+                Self::Date(NaiveDate::from_ymd_opt(year, month, day).expect(""))
             }
             fn from_ymd_and_hour(year: i32, month: u32, day: u32, hour: u32) -> Self {
-                Self::DateAndHour(NaiveDate::from_ymd(year, month, day).and_hms(hour, 0, 0))
+                Self::DateAndHour(
+                    NaiveDate::from_ymd_opt(year, month, day)
+                        .expect("")
+                        .and_hms_opt(hour, 0, 0)
+                        .expect(""),
+                )
             }
         }
 

@@ -1,6 +1,6 @@
 // https://developer.apple.com/documentation/apple_search_ads/reportingrequest
 
-use chrono::{NaiveDate, Utc};
+use chrono::{Datelike as _, NaiveDate, Utc};
 use serde::{Deserialize, Serialize};
 use serde_aux_ext::field_attributes::deserialize_option_bool_from_anything;
 
@@ -55,12 +55,9 @@ pub struct ReportingRequest {
 
 impl Default for ReportingRequest {
     fn default() -> Self {
-        let now = Utc::today();
-        Self::new(
-            (now - chrono::Duration::days(3)).naive_utc(),
-            now.naive_utc(),
-            Selector::default(),
-        )
+        let now = Utc::now();
+        let now = NaiveDate::from_ymd_opt(now.year(), now.month(), now.day()).expect("");
+        Self::new(now - chrono::Duration::days(3), now, Selector::default())
     }
 }
 
