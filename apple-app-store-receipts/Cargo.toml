@@ -24,20 +24,20 @@ with-base64 = ["base64"]
 [dependencies]
 http-api-client-endpoint = { version = "0.2", default-features = false }
 
-serde = { version = "1.0", default-features = false, features = ["std", "derive"] }
-serde_json = { version = "1.0", default-features = false, features = ["std"] }
+serde = { version = "1", default-features = false, features = ["std", "derive"] }
+serde_json = { version = "1", default-features = false, features = ["std"] }
 chrono = { version = "0.4", default-features = false }
-serde-aux = { version = "2.1", default-features = false, features = ["chrono"] }
-base64 = { version = "0.13", default-features = false, features = ["std"], optional = true }
-serde-enum-str = { version = "0.2", default-features = false }
+serde-aux = { version = "4", default-features = false, features = ["chrono"] }
+base64 = { version = "0.20", default-features = false, features = ["std"], optional = true }
+serde-enum-str = { version = "0.3", default-features = false }
 
-thiserror = { version = "1.0", default-features = false }
+thiserror = { version = "1", default-features = false }
 
 [dev-dependencies]
 http-api-isahc-client = { version = "0.2", features = ["with-sleep-via-futures-timer"] }
 
-serde_test = { version = "1.0" }
-futures-lite = { version = "1.0" }
+serde_test = { version = "1" }
+futures-lite = { version = "1.12" }
 
 [package.metadata.cargo-all-features]
 skip_optional_dependencies = true

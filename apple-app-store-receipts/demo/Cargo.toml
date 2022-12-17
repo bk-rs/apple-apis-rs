@@ -14,5 +14,5 @@ apple-app-store-receipts = { path = ".." }
 
 http-api-isahc-client = { version = "0.2", features = ["with-sleep-via-futures-timer"] }
 
-futures-lite = { version = "1.11" }
-env_logger = { version = "0.9" }
+futures-lite = { version = "1.12" }
+env_logger = { version = "0.10" }
