@@ -27,7 +27,7 @@ serde = { version = "1", default-features = false, features = ["std", "derive"] 
 serde_json = { version = "1", default-features = false, features = ["std"] }
 chrono = { version = "0.4", default-features = false }
 serde-aux = { version = "4", default-features = false, features = ["chrono"] }
-base64 = { version = "0.20", default-features = false, features = ["std"], optional = true }
+base64 = { version = "0.21", default-features = false, features = ["std"], optional = true }
 serde-enum-str = { version = "0.3", default-features = false }
 
 thiserror = { version = "1", default-features = false }
@@ -36,7 +36,7 @@ thiserror = { version = "1", default-features = false }
 http-api-isahc-client = { version = "0.2", features = ["with-sleep-via-futures-timer"] }
 
 serde_test = { version = "1" }
-futures-lite = { version = "1.12" }
+futures-lite = { version = "1" }
 
 [package.metadata.cargo-all-features]
 skip_optional_dependencies = true

@@ -51,7 +51,11 @@ impl ReceiptData {
     pub fn data(&self) -> String {
         match self {
             #[cfg(feature = "with-base64")]
-            Self::Bytes(vec) => base64::encode(vec),
+            Self::Bytes(vec) => {
+                use base64::{engine::general_purpose, Engine as _};
+
+                general_purpose::STANDARD.encode(vec)
+            }
             Self::Base64String(string) => string.to_owned(),
         }
     }
