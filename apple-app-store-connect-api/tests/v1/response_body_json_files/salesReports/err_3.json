@@ -1,0 +1,104 @@
+{
+    "errors": [
+        {
+            "id": "7ed1a712-349c-432d-b31d-fbff2fbd5a7f",
+            "status": "400",
+            "code": "PARAMETER_ERROR.REQUIRED",
+            "title": "A required parameter was not provided",
+            "detail": "The parameter 'filter[reportSubType]' is required but was not provided",
+            "source": {
+                "parameter": "filter[reportSubType]"
+            }
+        },
+        {
+            "id": "ebd8b8cd-a7e9-40fb-b07e-99b35805595b",
+            "status": "400",
+            "code": "PARAMETER_ERROR.REQUIRED",
+            "title": "A required parameter was not provided",
+            "detail": "The parameter 'filter[reportType]' is required but was not provided",
+            "source": {
+                "parameter": "filter[reportType]"
+            }
+        },
+        {
+            "id": "a0732dd6-51d0-4ae0-bde0-67744398400a",
+            "status": "400",
+            "code": "PARAMETER_ERROR.REQUIRED",
+            "title": "A required parameter was not provided",
+            "detail": "The parameter 'filter[frequency]' is required but was not provided",
+            "source": {
+                "parameter": "filter[frequency]"
+            }
+        },
+        {
+            "id": "f899d22f-6d53-4d9e-9de5-041035a5b78f",
+            "status": "400",
+            "code": "PARAMETER_ERROR.REQUIRED",
+            "title": "A required parameter was not provided",
+            "detail": "The parameter 'filter[vendorNumber]' is required but was not provided",
+            "source": {
+                "parameter": "filter[vendorNumber]"
+            }
+        },
+        {
+            "id": "a5c820b9-6186-4227-a3c8-79998f43edeb",
+            "status": "400",
+            "code": "PARAMETER_ERROR.ILLEGAL",
+            "title": "A given parameter is not allowed for this request",
+            "detail": "The parameter 'frequency' can not be used with this request",
+            "source": {
+                "parameter": "frequency"
+            }
+        },
+        {
+            "id": "a44479e7-e523-4d79-bfff-6208d54a6459",
+            "status": "400",
+            "code": "PARAMETER_ERROR.ILLEGAL",
+            "title": "A given parameter is not allowed for this request",
+            "detail": "The parameter 'reportDate' can not be used with this request",
+            "source": {
+                "parameter": "reportDate"
+            }
+        },
+        {
+            "id": "e42c5890-d55e-47cf-a6b7-6630b33f80cd",
+            "status": "400",
+            "code": "PARAMETER_ERROR.ILLEGAL",
+            "title": "A given parameter is not allowed for this request",
+            "detail": "The parameter 'reportSubType' can not be used with this request",
+            "source": {
+                "parameter": "reportSubType"
+            }
+        },
+        {
+            "id": "a07497ad-e1b8-4eed-9fe8-957317eda876",
+            "status": "400",
+            "code": "PARAMETER_ERROR.ILLEGAL",
+            "title": "A given parameter is not allowed for this request",
+            "detail": "The parameter 'reportType' can not be used with this request",
+            "source": {
+                "parameter": "reportType"
+            }
+        },
+        {
+            "id": "3794514b-6b8c-47b5-965e-f6fae1dba44f",
+            "status": "400",
+            "code": "PARAMETER_ERROR.ILLEGAL",
+            "title": "A given parameter is not allowed for this request",
+            "detail": "The parameter 'vendorNumber' can not be used with this request",
+            "source": {
+                "parameter": "vendorNumber"
+            }
+        },
+        {
+            "id": "90c9a808-cee9-460b-a3eb-312cccf9ce68",
+            "status": "400",
+            "code": "PARAMETER_ERROR.ILLEGAL",
+            "title": "A given parameter is not allowed for this request",
+            "detail": "The parameter 'version' can not be used with this request",
+            "source": {
+                "parameter": "version"
+            }
+        }
+    ]
+}
