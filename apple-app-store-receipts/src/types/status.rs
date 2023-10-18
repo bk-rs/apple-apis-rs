@@ -84,7 +84,7 @@ mod tests {
 
     #[test]
     fn simple() -> Result<(), Box<dyn error::Error>> {
-        for (v, status) in vec![
+        for (v, status) in [
             (0, Status::Success),
             (21000, Status::Error21000),
             (21001, Status::Error21001),

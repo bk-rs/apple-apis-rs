@@ -17,3 +17,5 @@ members = [
     "apple-search-ads/demo",
     "apple-wallet-passes",
 ]
+resolver = "2"
+

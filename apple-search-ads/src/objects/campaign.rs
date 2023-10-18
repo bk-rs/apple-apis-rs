@@ -90,7 +90,7 @@ pub struct Campaign {
 
 //
 pub mod campaign_option_date_format {
-    use chrono::{DateTime, TimeZone, Utc};
+    use chrono::{DateTime, NaiveDateTime, Utc};
     use serde::{self, Deserialize, Deserializer, Serializer};
 
     const FORMAT: &str = "%Y-%m-%dT%H:%M:%S%.3f";
@@ -113,8 +113,8 @@ pub mod campaign_option_date_format {
     {
         let s: Option<String> = Option::deserialize(deserializer)?;
         if let Some(s) = s {
-            Utc.datetime_from_str(&s, FORMAT)
-                .map(Some)
+            NaiveDateTime::parse_from_str(&s, FORMAT)
+                .map(|x| Some(x.and_utc()))
                 .map_err(serde::de::Error::custom)
         } else {
             Ok(None)
@@ -123,7 +123,7 @@ pub mod campaign_option_date_format {
 }
 
 pub mod campaign_date_format {
-    use chrono::{DateTime, TimeZone, Utc};
+    use chrono::{DateTime, NaiveDateTime, Utc};
     use serde::{self, Deserialize, Deserializer, Serializer};
 
     const FORMAT: &str = "%Y-%m-%dT%H:%M:%S%.3f";
@@ -141,7 +141,8 @@ pub mod campaign_date_format {
         D: Deserializer<'de>,
     {
         let s = String::deserialize(deserializer)?;
-        Utc.datetime_from_str(&s, FORMAT)
+        NaiveDateTime::parse_from_str(&s, FORMAT)
+            .map(|x| x.and_utc())
             .map_err(serde::de::Error::custom)
     }
 }
