@@ -51,7 +51,7 @@ pub struct Campaign {
     pub id: u64,
 
     #[serde(rename = "locInvoiceDetails")]
-    pub loc_invoice_details: LOCInvoiceDetails,
+    pub loc_invoice_details: Option<LOCInvoiceDetails>,
 
     #[serde(with = "campaign_date_format")]
     #[serde(rename = "modificationTime")]
